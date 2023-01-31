@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1700170729326748858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1700170729326748860}
+  - component: {fileID: 1700170729326748861}
+  m_Layer: 0
+  m_Name: RoomTemeplete
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1700170729326748860
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700170729326748858}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5128062, y: 0.51894194, z: -0.039697345}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1700170729326748861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700170729326748858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e417aad46f6eac41a6d16440d330c8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoomMax: 10
+  RoomList: []
+  Allpoint: {fileID: 11400000, guid: a19a71fd41ab977409b54117bdd4948a, type: 2}
+  allALivablePoint:
+  - {fileID: 11400000, guid: 3ef227184cc35224783e969e076d0afd, type: 2}
+  - {fileID: 11400000, guid: f8dbaf80daf7a1f40939e9b96d16a9f8, type: 2}
+  - {fileID: 11400000, guid: 08d4100c35080dc4d90427a8b67aa555, type: 2}
+  - {fileID: 11400000, guid: 0e45e2240022a7641b39825e14bb7e49, type: 2}
+  PahtList:
+  - {fileID: 0}
+  - {fileID: 6497655169741790758, guid: 6728ea9624176e547b41e5e9998cfd9e, type: 3}
+  - {fileID: -8971192423341929441, guid: 3f7a33d2968981f4780a8ac3b55a3f10, type: 3}
+  - {fileID: 5526402954531244286, guid: dec30d3a037199c49b3c77114502b044, type: 3}
+  - {fileID: -2466365336149778146, guid: bf4dae04f1753ea4eae9fb815694c42b, type: 3}
+  Wall:
+  - {fileID: 0}
+  - {fileID: 8513663977547890206, guid: 451faeb3e921d9b4a821dde93680bc80, type: 3}
+  - {fileID: 3348510185010785452, guid: aabd8418d01afd44aa0802a8af61ba67, type: 3}
+  - {fileID: 1554213581604777555, guid: 68b475e110b54ad45aeef9f21f6eacfa, type: 3}
+  - {fileID: 3546275733240845628, guid: 9500c3eff8f2f7b4d8d0d9849b75d4a5, type: 3}
+  ExitDoor: {fileID: 0}
+  RoomMax25: 2
+  RoomMax50: 5
+  RoomMax75: 7

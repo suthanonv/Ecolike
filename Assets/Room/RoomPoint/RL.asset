@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0e259cfa9acc0146b6200ab09d90546, type: 3}
+  m_Name: RL
+  m_EditorClassIdentifier: 
+  PointID: 25
+  PointDirection: 
+  RoomPrefab: {fileID: 938197041534013752, guid: d7a54e9a45cd69f4ca915395e8790ff6, type: 3}

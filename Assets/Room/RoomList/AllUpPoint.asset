@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a60b38bd07647d5409b2d13e054de2b8, type: 3}
+  m_Name: AllUpPoint
+  m_EditorClassIdentifier: 
+  Diction: 2
+  AllDirectionPoint:
+  - {fileID: 11400000, guid: c491878417fa96042b7d613a88d18582, type: 2}
+  - {fileID: 11400000, guid: 27a971ff324a1b14f81cd429f662d877, type: 2}
+  - {fileID: 11400000, guid: 23c02120b2aaa6a449808bb87b9b192a, type: 2}
+  - {fileID: 11400000, guid: fc0a3aae2b352de4ba89d5de253b2fb5, type: 2}

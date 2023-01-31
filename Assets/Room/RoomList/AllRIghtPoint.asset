@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a60b38bd07647d5409b2d13e054de2b8, type: 3}
+  m_Name: AllRIghtPoint
+  m_EditorClassIdentifier: 
+  Diction: 4
+  AllDirectionPoint:
+  - {fileID: 11400000, guid: 574ea78163e607a4aa0027bbfd08bc85, type: 2}
+  - {fileID: 11400000, guid: 60e1923c84309f647bcdcaf02d562432, type: 2}
+  - {fileID: 11400000, guid: 18f47f9ec3673ff4da23772def5fdee5, type: 2}
+  - {fileID: 11400000, guid: fc0a3aae2b352de4ba89d5de253b2fb5, type: 2}

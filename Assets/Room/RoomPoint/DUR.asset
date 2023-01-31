@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0e259cfa9acc0146b6200ab09d90546, type: 3}
+  m_Name: DUR
+  m_EditorClassIdentifier: 
+  PointID: 21
+  PointDirection: 
+  RoomPrefab: {fileID: 221850366112424460, guid: 85774695e2a71f342a4c11827ed94285, type: 3}
