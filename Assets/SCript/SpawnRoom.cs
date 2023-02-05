@@ -51,9 +51,9 @@ public class SpawnRoom : MonoBehaviour
         Debug.Log(Check(currentList));
         if(Check(currentList))
         {
-            Debug.Log("Start");
+            
             GameObject Rooms = Roomtemeplete.instance.GetRoomByID(SetSum(currentList));
-            Debug.Log(SetSum(currentList));
+            
             Instantiate(Rooms, Point.transform.position, Rooms.transform.rotation);
         }
         

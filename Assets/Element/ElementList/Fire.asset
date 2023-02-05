@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: 
   Value: 1
+  ManaCost: 10
   ElementPrefab: {fileID: 183979934470001266, guid: edd9b9478ff9f114bac6eb5b61e8800f, type: 3}
   Force: 12.5
   isProjectile: 1

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Earth
   m_EditorClassIdentifier: 
   Value: 3
+  ManaCost: 10
   ElementPrefab: {fileID: 3277637923254978713, guid: 14fa5212cd3bbf54ea88e84844909789, type: 3}
   Force: 7.5
   isProjectile: 1

@@ -15,10 +15,17 @@ public class PlayerMana : MonoBehaviour
     public int Mana;
     public int CurrentMana;
 
+    public void DecreasedMana(int ManaAdd)
+    {
+        CurrentMana -= ManaAdd;
+        UiManager.instance.SetManaValue(Mana, CurrentMana);
+    }
+
     private void Start()
     {
         CurrentMana = Mana;
-
+        UiManager.instance.SetManaValue(Mana, CurrentMana);
+        StartCoroutine(RegenMana());
     }
 
     IEnumerator RegenMana()

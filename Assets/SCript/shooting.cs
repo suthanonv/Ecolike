@@ -70,12 +70,30 @@ public class shooting : MonoBehaviour
 
     void ReleaseElement()
     {
-        
+        if (CanRelease(sum))
+        {
             ElementManage.instance.ReleaseEM(sum);
             ReSetKeyValue();
             CurrentCD = ShootCD;
+        }
+    }
+
+    bool CanRelease(int value)
+    {
+        ManaRequire = ElementManage.instance.GetEm(value).ManaCost;
+        if (PlayerMana.instance.CurrentMana >= ManaRequire)
+        {
+            PlayerMana.instance.DecreasedMana(ManaRequire);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
         
     }
+
+
     void ReSetKeyValue()
     {
         Key1Value = 0;

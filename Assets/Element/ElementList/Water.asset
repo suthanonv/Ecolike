@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: 
   Value: 2
+  ManaCost: 10
   ElementPrefab: {fileID: 6527509171051340192, guid: 72ce7ee14dabdf74682cd5c2618509e1, type: 3}
   Force: 10
   isProjectile: 1
