@@ -11,6 +11,8 @@ public class Roomtemeplete : MonoBehaviour
     [SerializeField] List<AllPoint> allALivablePoint = new List<AllPoint>();
     public SpawnRoom[] PahtList;
     public GameObject[] Wall;
+    [SerializeField] List<GameObject> RoomItem = new List<GameObject>();
+    [SerializeField] List<GameObject> PathItem = new List<GameObject>();
     [SerializeField] GameObject ExitDoor;
 
     [SerializeField] int RoomMax25, RoomMax50, RoomMax75; // Set % of MaxRoom
@@ -71,6 +73,15 @@ public class Roomtemeplete : MonoBehaviour
         return allALivablePoint.FirstOrDefault(i => i.Diction == value);
     }
 
+    public GameObject GetRooomItem()
+    {
+        return RoomItem[Random.Range(0, RoomItem.Count)];
+    }
+
+    public GameObject GetPathItem()
+    {
+        return PathItem[Random.Range(0, PathItem.Count)];
+    }
 
     public GameObject GetWall(int value)
     {

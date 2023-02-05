@@ -32,6 +32,11 @@ public class SlashingDamage : MonoBehaviour
             collision.GetComponent<DamageAble>().TakeDamage(Damage);
             collision.GetComponent<Knockback>().PlayFeedBack(this.gameObject);
         }
+        if (collision.gameObject.GetComponent<DamageAble>() != null && collision.gameObject.tag != "Enemy")
+        {
+            collision.GetComponent<DamageAble>().TakeDamage(Damage);
+         
+        }
     }
 
     private void OnDestroy()

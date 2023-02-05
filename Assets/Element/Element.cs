@@ -5,6 +5,7 @@ using UnityEngine;
 public class Element : ScriptableObject
 {
     public int Value;
+    public int ManaCost;
     public GameObject ElementPrefab;
     public float Force;
     public bool isProjectile;

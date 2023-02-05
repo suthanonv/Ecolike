@@ -18,6 +18,11 @@ public class ProjectileTrigger : MonoBehaviour
         {
             SpawnEffect(this.gameObject.transform);
         }
+        if(collision.gameObject.GetComponent<DamageAble>() != null && collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "Player")
+        {
+            collision.GetComponent<DamageAble>().TakeDamage(Damage);
+            SpawnEffect(this.gameObject.transform);
+        }
     }
 
     void SpawnEffect(Transform Point)

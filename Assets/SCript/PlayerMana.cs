@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerMana : MonoBehaviour
 {
     public static PlayerMana instance;
-
-
+    [SerializeField] float ManaRegenTIme;
+    [SerializeField] int ManaRegenMuch;
     private void Awake()
     {
         instance = this;
@@ -18,7 +18,20 @@ public class PlayerMana : MonoBehaviour
     private void Start()
     {
         CurrentMana = Mana;
+
     }
 
+    IEnumerator RegenMana()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(ManaRegenTIme);
+            if(CurrentMana < Mana)
+            {
+                CurrentMana += ManaRegenMuch;
+            }
+        }
+    }
+   
 
 }

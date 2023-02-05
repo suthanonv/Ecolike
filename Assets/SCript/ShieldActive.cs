@@ -8,6 +8,13 @@ public class ShieldActive : MonoBehaviour
     Transform Point;
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] Light2D lights;
+    [SerializeField] int Limit = 2;
+    GameObject Player;
+
+    private void Awake()
+    {
+        Player = GameObject.FindWithTag("Player");
+    }
     private void Start()
     {
         Shield.instance.ActiveShield();
@@ -32,5 +39,18 @@ public class ShieldActive : MonoBehaviour
         Element CurrentEm = ElementManage.instance.GetEm(value);
         sprite.color = CurrentEm.ElementColor;
         lights.color = CurrentEm.ElementColor;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<Knockback>().PlayFeedBack(Player);
+            Limit--;
+            if(Limit <=0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
     }
 }

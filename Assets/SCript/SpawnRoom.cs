@@ -11,7 +11,7 @@ public class SpawnRoom : MonoBehaviour
 
     private void Start()
     {
-        Invoke("SpawnRooms", 0.2f);
+        Invoke("SpawnRooms", 0.25f);
     }
     public void SetDirection(int newDirect)
     {
@@ -28,6 +28,7 @@ public class SpawnRoom : MonoBehaviour
             Instantiate(Rooms, Point.transform.position, Rooms.transform.rotation);
             isSpawnDone = true;
         }
+        
     }
    
 
@@ -47,13 +48,15 @@ public class SpawnRoom : MonoBehaviour
     {
         isSpawnDone = true;
         List<SpawnRoom> currentList = otherRoom;
+        Debug.Log(Check(currentList));
         if(Check(currentList))
         {
+            Debug.Log("Start");
             GameObject Rooms = Roomtemeplete.instance.GetRoomByID(SetSum(currentList));
+            Debug.Log(SetSum(currentList));
             Instantiate(Rooms, Point.transform.position, Rooms.transform.rotation);
         }
-
-       
+        
     }
 
     int SetSum(List<SpawnRoom> list)
@@ -63,7 +66,6 @@ public class SpawnRoom : MonoBehaviour
         {
             Sum += i.Direction * i.Direction;
         }
-        Debug.Log(Sum);
         return Sum;
     }
 
@@ -72,7 +74,7 @@ public class SpawnRoom : MonoBehaviour
      
         foreach(SpawnRoom i in list)
         {
-            if(i.Direction > Direction)
+            if(i.Direction >= Direction)
             {
                 return false;
             }

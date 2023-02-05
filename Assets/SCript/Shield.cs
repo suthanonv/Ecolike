@@ -9,6 +9,7 @@ public class Shield : MonoBehaviour
     [SerializeField] Transform Point;
     [SerializeField] float ShieldUptime = 2;
     [SerializeField] Transform RotatePoint;
+    GameObject CurrentaShield;
     private void Awake()
     {
         instance = this;
@@ -25,9 +26,9 @@ public class Shield : MonoBehaviour
             if (Input.GetKey(ShieldKey) && CanShields)
             {
                 int Sum = shooting.instance.sum;
-                GameObject Sh = Instantiate(Shields, Point.transform.position, RotatePoint.transform.rotation);
-                Sh.GetComponent<ShieldActive>().SetColor(Sum);
-                Destroy(Sh, ShieldUptime);
+                GameObject CurrentaShield = Instantiate(Shields, Point.transform.position, RotatePoint.transform.rotation);
+                CurrentaShield.GetComponent<ShieldActive>().SetColor(Sum);
+                Destroy(CurrentaShield, ShieldUptime);
                 CurrentCoolDown = ShieldCD;
             }
         }
@@ -60,4 +61,11 @@ public class Shield : MonoBehaviour
         OnShieldOff.Invoke();
     }
 
+    public void DestoryShield()
+    {
+        if(CurrentaShield != null)
+        {
+            Destroy(CurrentaShield);
+        }
+    }
 }
