@@ -12,6 +12,7 @@ public class EnemyDamage : MonoBehaviour
         {
             OnHit.Invoke();
             collision.gameObject.GetComponent<Knockback>().PlayFeedBack(this.gameObject);
+            this.gameObject.GetComponent<Knockback>().PlayFeedBack(collision.gameObject);
             collision.gameObject.GetComponent<DamageAble>().TakeDamage(Damage);
         }
     }

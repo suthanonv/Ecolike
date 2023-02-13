@@ -13,10 +13,10 @@ public class ElementManage : MonoBehaviour
         instance = this;
     }
 
-    public void ReleaseEM(int value)
+    public void ReleaseEM(Element inUSe)
     {
-        Element em = GetEm(value);
-
+        Element em = inUSe;
+        SoundManageMent.instance.PlayCustomSound(em.CastingSound);
         if(em.isProjectile)
         {
             GameObject element = Instantiate(em.ElementPrefab, Point.transform.position, RotatePoint.transform.rotation);
@@ -30,9 +30,47 @@ public class ElementManage : MonoBehaviour
         }
     }
 
+    public void ReleaseUtimate(Element CurrentEM)
+    {
+
+    }
+
 
  public   Element GetEm(int value)
     {
         return EmList.AllEm.FirstOrDefault(i => i.Value == value);
     }
+
+    public Element GetEmByRequire(List<Element> CurrentList)
+    {
+        if (CurrentList.Count > 0)
+        {
+            foreach (Element i in EmList.AllEm)
+            {
+                foreach (RequireElment w in i.AllRequire)
+                {
+                 if(w.RequiredEM.Count == CurrentList.Count)
+                    {
+                        int check = 0;
+                        for(int count =0; count < CurrentList.Count;)
+                        {
+                            if(w.RequiredEM[count] != CurrentList[count])
+                            {
+                                check++;
+                            }
+                            count++;
+                        }
+                        if(check <= 0)
+                        {
+                            return i;
+                        }
+                    }
+                }
+            }
+        }
+     
+        
+        return EmList.AllEm.FirstOrDefault(i => i.Value == 0);
+    }
+  
 }

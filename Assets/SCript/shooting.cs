@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class shooting : MonoBehaviour
 {
     public static shooting instance;
@@ -8,17 +9,28 @@ public class shooting : MonoBehaviour
     public KeyCode Em1Key = KeyCode.Q;
     public KeyCode Em2Key = KeyCode.E;
     public KeyCode Em3Key = KeyCode.R;
-    int Key1Value, Key2Value, Key3Value;
-    [SerializeField] int ManaRequire;
+    public KeyCode ChargedKey = KeyCode.F;
+ public   int Key1Value, Key2Value, Key3Value;
+     int ManaRequire;
     
     [SerializeField] float ShootCD;
   float   CurrentCD;
     [SerializeField] float SwapCd = 0.1f;
 
     [SerializeField] List<Element> EmUse = new List<Element>();
+    [SerializeField] public List<Element> InUse;
     float CurrentSwapCD;
     public int sum;
     bool CanSwape;
+ 
+    [Header("Ultimate Slider")]
+    [SerializeField] Slider UltimateGage;
+  public  Element CurrentEM;
+    float  CurrentGage;
+    float MaxGate;
+    [SerializeField] float CastingSpeed = 1;
+    [SerializeField] GameObject Slider;
+    
     private void Awake()
     {
         instance = this;
@@ -29,6 +41,46 @@ public class shooting : MonoBehaviour
         SetElment();
         ShootingElement();
         SetSum();
+        ChargedUltimate();
+    }
+    bool Charge;
+    void ChargedUltimate()
+    {
+
+        if(Input.GetKeyDown(ChargedKey))
+        {
+            Charge = true;
+        } 
+
+        if(Charge == false)
+        {
+            Slider.SetActive(false);
+            PlayerWalk.instance.OnSlow(false);
+        }
+        else
+        {
+            Slider.SetActive(true);
+       
+        }
+
+
+        if (Charge && CurrentGage < MaxGate)
+        {
+            PlayerWalk.instance.OnSlow(true);
+            CurrentGage = Mathf.Lerp(CurrentGage, MaxGate +1, Time.deltaTime * CastingSpeed);
+        }
+        if(CurrentGage >= MaxGate)
+        {
+            PlayerWalk.instance.OnSlow(false);
+            CurrentGage = MaxGate;
+        }
+        UltimateGage.value = CurrentGage;
+    }
+
+    public void CancelGage()
+    {
+        Charge = false;
+
     }
 
     void ShootingElement()
@@ -39,6 +91,7 @@ public class shooting : MonoBehaviour
             {
                 ReleaseElement();
             }
+            
         }
         else
         {
@@ -50,21 +103,16 @@ public class shooting : MonoBehaviour
 
     void SetSum()
     {
-        if ((Key1Value != 0 && Key2Value + Key3Value == 0) || Key2Value != 0 && Key1Value + Key3Value == 0 || Key3Value != 0 && Key1Value + Key2Value == 0)
+        
+        SetWeaponColor.instance.SetColor(ElementManage.instance.GetEmByRequire(InUse).Value);
+       
+        if (CurrentEM != ElementManage.instance.GetEmByRequire(InUse))
         {
-            sum = Key1Value + Key2Value + Key3Value;
-            SetWeaponColor.instance.SetColor(sum);
-        }
-        else if(Key1Value + Key2Value + Key3Value == 0)
-        {
-             sum = 0;
-            SetWeaponColor.instance.SetColor(sum);
-        }
-        else
-
-        {
-            sum = (Key1Value * Key1Value) + (Key2Value * Key2Value) + (Key3Value * Key3Value);
-            
+            CancelGage();
+            CurrentGage = 0;
+            CurrentEM = ElementManage.instance.GetEmByRequire(InUse);
+            MaxGate = CurrentEM.MaxChargeTime;
+            UltimateGage.maxValue = MaxGate;
         }
     }
 
@@ -72,15 +120,37 @@ public class shooting : MonoBehaviour
     {
         if (CanRelease(sum))
         {
-            ElementManage.instance.ReleaseEM(sum);
-            ReSetKeyValue();
-            CurrentCD = ShootCD;
+            if (CurrentGage < MaxGate)
+            {
+                Charge = false;
+                CurrentGage = 0;
+                ElementManage.instance.ReleaseEM(CurrentEM);
+                CurrentCD = CurrentEM.AttackCD;
+            }
+            else
+            {
+                Charge = false;
+                CurrentGage = 0;
+                ElementManage.instance.ReleaseUtimate(CurrentEM);
+                CurrentCD = CurrentEM.AttackCD;
+            }
+        }
+        else
+        {
+            Debug.Log("not Enought Mana");
         }
     }
 
     bool CanRelease(int value)
     {
-        ManaRequire = ElementManage.instance.GetEm(value).ManaCost;
+        if (CurrentGage < MaxGate)
+        {
+            ManaRequire = CurrentEM.ManaCost;
+        }
+        else
+        {
+            ManaRequire = CurrentEM.UltimateManaCost;
+        }
         if (PlayerMana.instance.CurrentMana >= ManaRequire)
         {
             PlayerMana.instance.DecreasedMana(ManaRequire);
@@ -93,30 +163,27 @@ public class shooting : MonoBehaviour
         
     }
 
-
-    void ReSetKeyValue()
-    {
-        Key1Value = 0;
-        Key2Value = 0;
-        Key3Value = 0;
-    }
     void SetElment()
     {
         if (CurrentSwapCD <= 0)
         {
             if (Input.GetKeyDown(Em1Key) && Key1Value == 0)
             {
-                Key1Value = EmUse[0].Value;
+                Key1Value = 1;
+                InUse.Add(EmUse[0]);
                 CurrentSwapCD = SwapCd;
             }
           else  if (Input.GetKeyDown(Em2Key) && Key2Value == 0)
             {
-                Key2Value = EmUse[1].Value;
+                Key2Value = 1;
+                InUse.Add(EmUse[1]);
+
                 CurrentSwapCD = SwapCd;
             }
             else if (Input.GetKeyDown(Em3Key) && Key3Value == 0)
             {
-                Key3Value = EmUse[2].Value;
+                Key3Value = 1;
+                InUse.Add(EmUse[2]);
                 CurrentSwapCD = SwapCd;
             }
 
@@ -124,17 +191,23 @@ public class shooting : MonoBehaviour
             else if (Input.GetKeyDown(Em1Key) && Key1Value != 0)
             {
                 Key1Value = 0;
+ 
+                InUse.Remove(EmUse[0]);
                 CurrentSwapCD = SwapCd;
 
             }
             else if (Input.GetKeyDown(Em2Key) && Key2Value != 0)
             {
                 Key2Value = 0;
+
+                InUse.Remove(EmUse[1]);
                 CurrentSwapCD = SwapCd;
             }
             else if (Input.GetKeyDown(Em3Key) && Key3Value != 0)
             {
                 Key3Value = 0;
+
+                InUse.Remove(EmUse[2]);
                 CurrentSwapCD = SwapCd;
             }
         }
@@ -143,5 +216,12 @@ public class shooting : MonoBehaviour
             CurrentSwapCD -= Time.deltaTime;
         }
     }
-    
+
+    private void OnDisable()
+    {
+        WeaponChangeing.instance.CurrnetWeapon = this.CurrentEM; 
+    }
+
+   
+
 }

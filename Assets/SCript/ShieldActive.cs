@@ -21,16 +21,20 @@ public class ShieldActive : MonoBehaviour
         Shield.instance.CanAciveShield(false);
         Point = GameObject.FindWithTag("Weapon").transform;
         this.transform.parent = Point;
-        this.transform.position = Point.transform.position;
-        PlayerWalk.instance.StopWalk(true);
+
+        //PlayerWalk.instance.StopWalk(true);
         SetWeaponColor.instance.DisableBall(false);
+    }
+    private void Update()
+    {
+        this.transform.position = Point.transform.position;
     }
 
     private void OnDestroy()
     {
         Shield.instance.OffShiled();
         Shield.instance.CanAciveShield(true);
-        PlayerWalk.instance.StopWalk(false);
+     //   PlayerWalk.instance.StopWalk(false);
         SetWeaponColor.instance.DisableBall(true);
     }
 

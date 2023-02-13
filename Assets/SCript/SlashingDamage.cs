@@ -8,12 +8,8 @@ public class SlashingDamage : MonoBehaviour
     [SerializeField] float EffectUpTime;
     [SerializeField] float Damage;
     Transform Point;
-    private void Awake()
-    {
-        SetWeaponColor.instance.OnStopRoate(true);
-        PlayerWalk.instance.StopWalk(true);
-        
-    }
+ 
+ 
 
     private void Start()
     {
@@ -22,8 +18,13 @@ public class SlashingDamage : MonoBehaviour
         Point = GameObject.FindWithTag("Weapon").transform;
         this.transform.parent = Point;
         this.transform.position = Point.transform.position;
-        SetWeaponColor.instance.DisableBall(false);
+        
         Destroy(this.gameObject, EffectUpTime);
+    }
+
+    private void Update()
+    {
+        this.transform.position = Point.transform.position;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -32,20 +33,20 @@ public class SlashingDamage : MonoBehaviour
             collision.GetComponent<DamageAble>().TakeDamage(Damage);
             collision.GetComponent<Knockback>().PlayFeedBack(this.gameObject);
         }
-        if (collision.gameObject.GetComponent<DamageAble>() != null && collision.gameObject.tag != "Enemy")
+        if (collision.gameObject.GetComponent<DamageAble>() != null && collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "Player")
         {
             collision.GetComponent<DamageAble>().TakeDamage(Damage);
          
         }
     }
 
+
     private void OnDestroy()
     {
-        PlayerWalk.instance.StopWalk(false);
         Shield.instance.CanAciveShield(true);
-        SetWeaponColor.instance.OnStopRoate(false);
-        SetWeaponColor.instance.DisableBall(true);
     }
+
+
 
 
 }

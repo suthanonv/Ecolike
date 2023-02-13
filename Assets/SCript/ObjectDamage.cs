@@ -10,7 +10,13 @@ public class ObjectDamage : DamageAble
     [SerializeField] Animator anim;
     [SerializeField] float TextUpTime;
     [SerializeField] Transform PointSpawning;
-    public GameObject FloatingPoint;
+    [SerializeField] GameObject FloatingPoint;
+    [SerializeField] ObjecType thisObjectType;
+    enum ObjecType
+    {
+        Box,
+        Jar
+        }
     private void Start()
     {
         CurrentHealth = Health;
@@ -24,6 +30,14 @@ public class ObjectDamage : DamageAble
         if (CurrentHealth <= 0)
         {
             anim.SetBool("isDestroy", true);
+            if(thisObjectType == ObjecType.Box)
+            {
+                SoundManageMent.instance.PlayBlockBroken();
+            }
+           else if (thisObjectType == ObjecType.Jar)
+            {
+                SoundManageMent.instance.PLayJarBroken();
+            }
         }
     }
 }

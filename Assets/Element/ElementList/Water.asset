@@ -12,10 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed408b972cd44f948b41ddca923f5a4a, type: 3}
   m_Name: Water
   m_EditorClassIdentifier: 
+  ElementColor: {r: 0.38431373, g: 1, b: 0.9411765, a: 1}
+  CastingSound: {fileID: 8300000, guid: 7a3edfa7a3f64f64dacd351a8627350c, type: 3}
   Value: 2
+  RequireKey: 010000000000000000000000
+  AllRequire:
+  - RequiredEM:
+    - {fileID: 11400000}
   ManaCost: 10
+  UltimateManaCost: 0
   ElementPrefab: {fileID: 6527509171051340192, guid: 72ce7ee14dabdf74682cd5c2618509e1, type: 3}
+  UltimatePrefab: {fileID: 0}
+  AttackCD: 0.5
   Force: 10
   isProjectile: 1
   BulletUpTime: 2.5
-  ElementColor: {r: 0.38431373, g: 1, b: 0.9411765, a: 1}
+  isUtimateProjectile: 0
+  UltiForce: 0
+  UtimateUpTime: 0
+  MaxChargeTime: 5

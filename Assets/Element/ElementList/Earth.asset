@@ -12,10 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed408b972cd44f948b41ddca923f5a4a, type: 3}
   m_Name: Earth
   m_EditorClassIdentifier: 
+  ElementColor: {r: 0.65882355, g: 0.5137255, b: 0.3882353, a: 1}
+  CastingSound: {fileID: 8300000, guid: a3ffd40b58cdea342a05de6ce37626a5, type: 3}
   Value: 3
+  RequireKey: 000000000000000001000000
+  AllRequire:
+  - RequiredEM:
+    - {fileID: 11400000}
   ManaCost: 10
+  UltimateManaCost: 0
   ElementPrefab: {fileID: 3277637923254978713, guid: 14fa5212cd3bbf54ea88e84844909789, type: 3}
+  UltimatePrefab: {fileID: 0}
+  AttackCD: 1
   Force: 7.5
   isProjectile: 1
   BulletUpTime: 2.5
-  ElementColor: {r: 0.65882355, g: 0.5137255, b: 0.3882353, a: 1}
+  isUtimateProjectile: 0
+  UltiForce: 0
+  UtimateUpTime: 0
+  MaxChargeTime: 5

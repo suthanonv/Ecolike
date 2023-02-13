@@ -19,7 +19,6 @@ public class RotationToMouse : MonoBehaviour
         Vector3 rotation = mousePos - transform.position;
 
         float rotz = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-
         transform.rotation = Quaternion.Euler(0, 0, rotz);
     }
 }

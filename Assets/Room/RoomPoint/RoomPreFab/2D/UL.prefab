@@ -650,7 +650,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Point1: {fileID: 4977277706543170605}
   Point2: {fileID: 2830321396299829062}
-  MaxSpawnLimit: 0
+  MaxSpawnLimit: 5
+  IsSpawnRoom: 0
+  DelayTime: 0
 --- !u!50 &-8686120186758141516
 Rigidbody2D:
   serializedVersion: 4

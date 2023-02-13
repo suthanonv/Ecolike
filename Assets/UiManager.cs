@@ -18,8 +18,12 @@ public class UiManager : MonoBehaviour
     [SerializeField] Slider ManaSlider;
     [SerializeField] Slider AnimManaSlider;
     int LastMana;
+
+    [Header("Mana Not Enought ")]
+    [SerializeField] GameObject NotEnoughtBar;
+    [SerializeField] Slider NotEnoughtSlider;
+    [SerializeField] float SetActiveTIme = 0.1f;
    
- 
    
         public void SetHealthValue(float MaxHealh, float CurrentHealth)
     {
@@ -79,11 +83,19 @@ public class UiManager : MonoBehaviour
         }
     }
 
-    
-    void RunManaAnimation()
+    public void OnManaNotEnought(int MaxMana, int NotEnougt)
     {
-
+        NotEnoughtBar.SetActive(true);
+        NotEnoughtSlider.maxValue = MaxMana;
+        NotEnoughtSlider.value = NotEnougt;
+        Invoke("ClsoeNotEnougt", SetActiveTIme);
     }
+    
+    void ClsoeNotEnougt()
+    {
+        NotEnoughtBar.SetActive(false);
+    }
+    
     bool HealthLerp;
     float LerpHealth;
 
@@ -93,7 +105,7 @@ public class UiManager : MonoBehaviour
     {
         if(HealthLerp)
         {
-            AnimHealthSlider.value = Mathf.Lerp(AnimHealthSlider.value, LerpHealth -1, Time.deltaTime * 2.5f );
+            AnimHealthSlider.value = Mathf.Lerp(AnimHealthSlider.value, LerpHealth -1, Time.deltaTime * 4f );
             if(AnimHealthSlider.value <= LerpHealth)
             {
                 HealthLerp = false;
@@ -103,7 +115,7 @@ public class UiManager : MonoBehaviour
 
         if(ManaLerp)
         {
-            AnimManaSlider.value = Mathf.Lerp(AnimManaSlider.value, LerpMana -1, Time.deltaTime * 2.5f);
+            AnimManaSlider.value = Mathf.Lerp(AnimManaSlider.value, LerpMana -1, Time.deltaTime * 6f);
             if(AnimManaSlider.value <= LerpMana)
             {
                 ManaLerp = false;

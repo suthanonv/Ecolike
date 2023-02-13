@@ -36,6 +36,12 @@ public class PlayerMana : MonoBehaviour
             if(CurrentMana < Mana)
             {
                 CurrentMana += ManaRegenMuch;
+                UiManager.instance.SetManaValue(Mana, CurrentMana);
+                if(CurrentMana >= Mana)
+                {
+                    CurrentMana = Mana;
+                    UiManager.instance.SetManaValue(Mana, CurrentMana); 
+                }
             }
         }
     }

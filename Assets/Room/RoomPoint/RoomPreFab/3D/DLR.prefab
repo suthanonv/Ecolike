@@ -1092,7 +1092,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Point1: {fileID: 7164051935005822329}
   Point2: {fileID: 8921152157754197306}
-  MaxSpawnLimit: 0
+  MaxSpawnLimit: 5
+  IsSpawnRoom: 0
+  DelayTime: 0
 --- !u!61 &-7079105771017080356
 BoxCollider2D:
   m_ObjectHideFlags: 0

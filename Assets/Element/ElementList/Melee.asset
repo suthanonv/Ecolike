@@ -12,9 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed408b972cd44f948b41ddca923f5a4a, type: 3}
   m_Name: Melee
   m_EditorClassIdentifier: 
+  ElementColor: {r: 1, g: 1, b: 1, a: 1}
+  CastingSound: {fileID: 8300000, guid: 96341ab323a808c42ae71ab68969cf52, type: 3}
   Value: 0
+  RequireKey: 000000000000000000000000
+  AllRequire: []
+  ManaCost: 0
+  UltimateManaCost: 0
   ElementPrefab: {fileID: 2302464325218101486, guid: addf43f7d4df91a49b282ede40501bdf, type: 3}
+  UltimatePrefab: {fileID: 0}
+  AttackCD: 1
   Force: 0
   isProjectile: 1
   BulletUpTime: 0.25
-  ElementColor: {r: 1, g: 1, b: 1, a: 1}
+  isUtimateProjectile: 0
+  UltiForce: 0
+  UtimateUpTime: 0
+  MaxChargeTime: 5

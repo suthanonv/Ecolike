@@ -12,10 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed408b972cd44f948b41ddca923f5a4a, type: 3}
   m_Name: Fire
   m_EditorClassIdentifier: 
+  ElementColor: {r: 1, g: 0.5921569, b: 0.24313726, a: 1}
+  CastingSound: {fileID: 8300000, guid: e1f70ff0afa1b9441b920e6152af83fa, type: 3}
   Value: 1
+  RequireKey: 010000000000000000000000
+  AllRequire:
+  - RequiredEM:
+    - {fileID: 11400000}
   ManaCost: 10
+  UltimateManaCost: 0
   ElementPrefab: {fileID: 183979934470001266, guid: edd9b9478ff9f114bac6eb5b61e8800f, type: 3}
+  UltimatePrefab: {fileID: 0}
+  AttackCD: 1
   Force: 12.5
   isProjectile: 1
   BulletUpTime: 2.5
-  ElementColor: {r: 1, g: 0.5921569, b: 0.24313726, a: 1}
+  isUtimateProjectile: 0
+  UltiForce: 0
+  UtimateUpTime: 0
+  MaxChargeTime: 5
