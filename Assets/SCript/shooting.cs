@@ -55,23 +55,22 @@ public class shooting : MonoBehaviour
         if(Charge == false)
         {
             Slider.SetActive(false);
-            PlayerWalk.instance.OnSlow(false);
+            WeaponWalking.instance.slowWalk(false);
         }
         else
         {
             Slider.SetActive(true);
-       
         }
 
 
         if (Charge && CurrentGage < MaxGate)
         {
-            PlayerWalk.instance.OnSlow(true);
+            WeaponWalking.instance.slowWalk(true);
             CurrentGage = Mathf.Lerp(CurrentGage, MaxGate +1, Time.deltaTime * CastingSpeed);
         }
         if(CurrentGage >= MaxGate)
         {
-            PlayerWalk.instance.OnSlow(false);
+            WeaponWalking.instance.slowWalk(false);
             CurrentGage = MaxGate;
         }
         UltimateGage.value = CurrentGage;
@@ -219,9 +218,17 @@ public class shooting : MonoBehaviour
 
     private void OnDisable()
     {
-        WeaponChangeing.instance.CurrnetWeapon = this.CurrentEM; 
+        if (this.CurrentEM == null)
+        {
+            WeaponChangeing.instance.CurrnetWeapon = ElementManage.instance.GetEm(0);
+            WeaponChangeing.instance.SetHandlleWeapon();
+        }
+        else
+        {
+            WeaponChangeing.instance.CurrnetWeapon = this.CurrentEM;
+            WeaponChangeing.instance.SetHandlleWeapon();
+        }
     }
-
    
 
 }

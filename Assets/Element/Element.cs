@@ -18,7 +18,10 @@ public class Element : ScriptableObject
     public GameObject UltimatePrefab;
 
     [Header("Melee Weapon")]
+    public GameObject WeaponPrefab;
     public GameObject MeleePrefab;
+    public GameObject MeleeUlti;
+    public float MeleeUltiChargeTime;
     public float MeleeAttackCD;
 
     [Header("Normle Attack Stat")]
@@ -33,12 +36,23 @@ public class Element : ScriptableObject
     public float UltiForce;
     public float UtimateUpTime;
    public float MaxChargeTime;
+
+    [Header("Element Reaction")]
+    public List<ElmentReaction> possiblereact = new List<ElmentReaction>();
+    public GameObject ReactionFream;
 }
 
 [System.Serializable]
 public class RequireElment
 {
     public List<Element> RequiredEM = new List<Element>();
+}
+
+[System.Serializable]
+public class ElmentReaction { 
+
+    public int Value;
+    public GameObject ReactPrefab;
 }
 
 

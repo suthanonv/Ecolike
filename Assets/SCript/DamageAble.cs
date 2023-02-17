@@ -14,4 +14,18 @@ public class DamageAble : MonoBehaviour
 
 
     }
+
+    public virtual void SetReduction(Element ElementIncome)
+    { 
+    }
+
+    public virtual void  EmAttackType(Element type)
+    {
+
+    }
+
+    public virtual void ReleaseReduction(Element ElemnetIncome)
+    {
+
+    }
 }

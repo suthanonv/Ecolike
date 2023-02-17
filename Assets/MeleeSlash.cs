@@ -6,6 +6,7 @@ public class MeleeSlash : MonoBehaviour
 {
     RotationToMouse rotate;
     [SerializeField] float DestoryTime;
+    [SerializeField] float Damage;
     private void Start()
     {
         PlayerWalk.instance.StopWalk(true);
@@ -17,7 +18,16 @@ public class MeleeSlash : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.gameObject.tag == "Enemy")
+        {
+            other.GetComponent<DamageAble>().TakeDamage(Damage);
+            other.GetComponent<Knockback>().PlayFeedBack(this.gameObject);
+        }
+        if (other.gameObject.GetComponent<DamageAble>() != null && other.gameObject.tag != "Enemy" && other.gameObject.tag != "Player")
+        {
+            other.GetComponent<DamageAble>().TakeDamage(Damage);
+
+        }
     }
 
     private void OnDestroy()

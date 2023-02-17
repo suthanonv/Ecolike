@@ -16,15 +16,19 @@ public class WeaponChangeing : MonoBehaviour
     [SerializeField] float SwapCd;
     Element CurrentEM;
   public  Element CurrnetWeapon;
+    [SerializeField] Transform WeaponPoint;
 
     private void Awake()
     {
         instance = this;
+
     }
 
     private void Start()
     {
-        CurrnetWeapon = ElementManage.instance.GetEmByRequire(InUse);
+        CurrentEM = ElementManage.instance.GetEmByRequire(InUse);
+        CurrnetWeapon = CurrentEM;
+        SetHandlleWeapon();
     }
 
     private void Update()
@@ -39,9 +43,21 @@ public class WeaponChangeing : MonoBehaviour
             if(CurrnetWeapon != CurrentEM)
             {
                 CurrnetWeapon = CurrentEM;
+                SetHandlleWeapon();
             }
         }
     }
+
+
+    public void SetHandlleWeapon()
+    { 
+        foreach(Transform i in WeaponPoint)
+        {
+            Destroy(i.gameObject);
+        }
+        Instantiate(CurrnetWeapon.WeaponPrefab, WeaponPoint.transform);
+    }
+
 
 
 

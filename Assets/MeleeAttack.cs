@@ -8,7 +8,7 @@ public class MeleeAttack : MonoBehaviour
     public static MeleeAttack instace;
     [SerializeField] GameObject Slash;
     [SerializeField] SpriteRenderer render;
-    [SerializeField] Light2D lightes;
+
     [SerializeField] Element WeaponElement;
     [SerializeField] Transform Point;
     Transform RotationPoint;
@@ -24,16 +24,38 @@ public class MeleeAttack : MonoBehaviour
         RotationPoint = GameObject.FindWithTag("Weapon").transform;
         ATKCD = WeaponElement.MeleeAttackCD;
     }
-
+    float Limit;
+    float CurrentCharge = 0;
     private void Update()
     {
-        if(CurrentCD <= 0)
+        if (CurrentCD <= 0)
         {
-            if(Input.GetKeyDown(AttackKey))
+            Limit = WeaponElement.MeleeUltiChargeTime;
+            MeleeChargeBar.instance.SetColor(WeaponElement);
+            if (Input.GetKey(AttackKey))
             {
-                Instantiate(WeaponElement.MeleePrefab, Point.transform.position, RotationPoint.transform.rotation);
-                CurrentCD = ATKCD;
+                CurrentCharge = Mathf.Lerp(CurrentCharge, Limit + 1, Time.deltaTime);
+                PlayerWalk.instance.OnSlow(true);
+                MeleeChargeBar.instance.SetBar(Limit, CurrentCharge);
             }
+            if (Input.GetKeyUp(AttackKey))
+            {
+                if (CurrentCharge < Limit)
+                {
+
+                    Instantiate(WeaponElement.MeleePrefab, Point.transform.position, RotationPoint.transform.rotation);
+                   
+                }
+                else
+                {
+
+                }
+                CurrentCD = ATKCD;
+                CurrentCharge = 0;
+                PlayerWalk.instance.OnSlow(false);
+                MeleeChargeBar.instance.SetBar(Limit, 0);
+            }
+          
         }
         else
         {
@@ -47,12 +69,12 @@ public class MeleeAttack : MonoBehaviour
         if(check)
         {
             render.enabled = false;
-            lightes.enabled = false;
+         
         }
         else
         {
             render.enabled = true;
-            lightes.enabled = true;
+            
         }
     }
 
