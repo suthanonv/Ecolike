@@ -19,13 +19,14 @@ public class WeaponWalking : MonoBehaviour
     public float moveSpeed = 5f;
     Vector2 movement;
     Transform Player;
-    
+    private Camera MainCam;
 
     void Start()
     {
         Player = GameObject.FindWithTag("Player").transform;
-
+        MainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         CurrentSpeed = moveSpeed;
+
     }
 
     public void slowWalk(bool slow)
@@ -48,18 +49,15 @@ public class WeaponWalking : MonoBehaviour
             SwapCamera.instance.SwapToPlayer();
         }
 
+        Vector3 mousePos = MainCam.ScreenToWorldPoint(Input.mousePosition);
+
+        Vector3 rotation = mousePos - transform.position;
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        anim.SetFloat("Horizontal", movement.x);
-        anim.SetFloat("Vetical", movement.y);
-        anim.SetFloat("Speed", movement.sqrMagnitude);
-
-        if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
-        {
-            anim.SetFloat("LastHorizontal", movement.x);
-            anim.SetFloat("LastVertical", movement.y);
-
-        }
+     
+     anim.SetFloat("LastHorizontal", rotation.x);
+     anim.SetFloat("LastVertical", rotation.y);
+        
 
     }
 

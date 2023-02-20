@@ -7,6 +7,7 @@ public class MeleeSlash : MonoBehaviour
     RotationToMouse rotate;
     [SerializeField] float DestoryTime;
     [SerializeField] float Damage;
+    [SerializeField] Element SlashEm;
     private void Start()
     {
         PlayerWalk.instance.StopWalk(true);

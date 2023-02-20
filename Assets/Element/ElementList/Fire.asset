@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ElementColor: {r: 1, g: 0.5921569, b: 0.24313726, a: 1}
   CastingSound: {fileID: 8300000, guid: e1f70ff0afa1b9441b920e6152af83fa, type: 3}
+  ElementFreame: {fileID: 5101175198418416736, guid: 9c27445af2bb89c44bee5863f79a3dd5, type: 3}
   Value: 1
   RequireKey: 010000000000000000000000
   AllRequire:
@@ -36,3 +37,5 @@ MonoBehaviour:
   UltiForce: 0
   UtimateUpTime: 0
   MaxChargeTime: 5
+  possiblereact: []
+  ReactionFream: {fileID: 0}

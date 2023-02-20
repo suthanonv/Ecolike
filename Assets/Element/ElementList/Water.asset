@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ElementColor: {r: 0.38431373, g: 1, b: 0.9411765, a: 1}
   CastingSound: {fileID: 8300000, guid: 7a3edfa7a3f64f64dacd351a8627350c, type: 3}
+  ElementFreame: {fileID: 5558845050236306127, guid: abbd3095bed4b974f8ff9109e8116c86, type: 3}
   Value: 2
   RequireKey: 010000000000000000000000
   AllRequire:
@@ -23,6 +24,11 @@ MonoBehaviour:
   UltimateManaCost: 0
   ElementPrefab: {fileID: 6527509171051340192, guid: 72ce7ee14dabdf74682cd5c2618509e1, type: 3}
   UltimatePrefab: {fileID: 0}
+  WeaponPrefab: {fileID: 0}
+  MeleePrefab: {fileID: 0}
+  MeleeUlti: {fileID: 0}
+  MeleeUltiChargeTime: 0
+  MeleeAttackCD: 0
   AttackCD: 0.5
   Force: 10
   isProjectile: 1
@@ -31,3 +37,5 @@ MonoBehaviour:
   UltiForce: 0
   UtimateUpTime: 0
   MaxChargeTime: 5
+  possiblereact: []
+  ReactionFream: {fileID: 0}

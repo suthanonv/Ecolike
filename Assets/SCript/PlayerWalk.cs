@@ -58,10 +58,7 @@ public class PlayerWalk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(SwapCamera.instance.swap == CurrentnSwap.Weapon)
-        {
-            this.GetComponent<PlayerWalk>().enabled = false;
-        }
+       
         Vector3 mousePos = MainCam.ScreenToWorldPoint(Input.mousePosition);
 
         Vector3 rotation = mousePos - transform.position;
@@ -106,18 +103,21 @@ public class PlayerWalk : MonoBehaviour
 
     }
 
-    private void OnDisable()
+    public void FreezeingSelf(bool isfreeze)
     {
-        animator.SetFloat("Horizontal", 0);
-        animator.SetFloat("Vertical", 0);
-        animator.SetFloat("Speed", 0);
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        if (isfreeze)
+        {
+            animator.SetFloat("Horizontal", 0);
+            animator.SetFloat("Vertical", 0);
+            animator.SetFloat("Speed", 0);
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        else
+        {
+            rb.constraints = RigidbodyConstraints2D.None;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
     }
 
-    private void OnEnable()
-    {
-        rb.constraints = RigidbodyConstraints2D.None;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-    }
-
+   
 }

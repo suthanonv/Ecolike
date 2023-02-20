@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
@@ -15,11 +15,11 @@ public class SwapCamera : MonoBehaviour
 
     [SerializeField] CinemachineVirtualCamera camLook;
     [SerializeField] Transform Player;
-    [SerializeField] Transform Weapon;
     [SerializeField] KeyCode swapKey = KeyCode.Z;
     [SerializeField] UnityEvent SwapTP, SwapTW;
     public CurrentnSwap swap = CurrentnSwap.Player;
-
+    [SerializeField] float SwapingCooldown;
+    float CurrentCoolDown;
     private void Awake()
     {
         instance = this;
@@ -32,15 +32,22 @@ public class SwapCamera : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(swapKey) && swap == CurrentnSwap.Player)
+        if (CurrentCoolDown <= 0)
         {
-          
-            SwapToWeapon();
+            if (Input.GetKeyDown(swapKey) && swap == CurrentnSwap.Player)
+            {
+
+                SwapToWeapon();
+            }
+            else if (Input.GetKeyDown(swapKey) && swap == CurrentnSwap.Weapon)
+            {
+
+                SwapToPlayer();
+            }
         }
-        else if(Input.GetKeyDown(swapKey) && swap == CurrentnSwap.Weapon)
+        else
         {
-           
-            SwapToPlayer();
+            CurrentCoolDown -= Time.deltaTime;
         }
     }
 
@@ -55,7 +62,6 @@ public class SwapCamera : MonoBehaviour
     public void SwapToWeapon()
     {
         swap = CurrentnSwap.Weapon;
-        camLook.Follow = Weapon;
         
         SwapTW.Invoke();
     }

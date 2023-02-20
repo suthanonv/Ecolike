@@ -40,18 +40,26 @@ public class WeaponChangeing : MonoBehaviour
     {
         if(Input.GetKeyDown(ForgeKey))
         {
-            if(CurrnetWeapon != CurrentEM)
+            if (CurrnetWeapon != CurrentEM)
             {
                 CurrnetWeapon = CurrentEM;
                 SetHandlleWeapon();
+            }
+            else
+            {
+                InUse = new List<Element>();
+                UiManager.instance.SetElmenetOnFreame(InUse);
             }
         }
     }
 
 
     public void SetHandlleWeapon()
-    { 
-        foreach(Transform i in WeaponPoint)
+    {
+        InUse = new List<Element>();
+        UiManager.instance.SetElmenetOnFreame(InUse);
+
+        foreach (Transform i in WeaponPoint)
         {
             Destroy(i.gameObject);
         }
@@ -69,19 +77,21 @@ public class WeaponChangeing : MonoBehaviour
             {
                 Key1Value = 1;
                 InUse.Add(EmUse[0]);
+                UiManager.instance.SetElmenetOnFreame(InUse);
                 CurrentSwapCD = SwapCd;
             }
             else if (Input.GetKeyDown(Em2Key) && Key2Value == 0)
             {
                 Key2Value = 1;
                 InUse.Add(EmUse[1]);
-
+                UiManager.instance.SetElmenetOnFreame(InUse);
                 CurrentSwapCD = SwapCd;
             }
             else if (Input.GetKeyDown(Em3Key) && Key3Value == 0)
             {
                 Key3Value = 1;
                 InUse.Add(EmUse[2]);
+                UiManager.instance.SetElmenetOnFreame(InUse);
                 CurrentSwapCD = SwapCd;
             }
 
@@ -91,6 +101,7 @@ public class WeaponChangeing : MonoBehaviour
                 Key1Value = 0;
 
                 InUse.Remove(EmUse[0]);
+                UiManager.instance.SetElmenetOnFreame(InUse);
                 CurrentSwapCD = SwapCd;
 
             }
@@ -99,6 +110,7 @@ public class WeaponChangeing : MonoBehaviour
                 Key2Value = 0;
 
                 InUse.Remove(EmUse[1]);
+                UiManager.instance.SetElmenetOnFreame(InUse);
                 CurrentSwapCD = SwapCd;
             }
             else if (Input.GetKeyDown(Em3Key) && Key3Value != 0)
@@ -106,6 +118,7 @@ public class WeaponChangeing : MonoBehaviour
                 Key3Value = 0;
 
                 InUse.Remove(EmUse[2]);
+                UiManager.instance.SetElmenetOnFreame(InUse);
                 CurrentSwapCD = SwapCd;
             }
         }
@@ -131,9 +144,10 @@ public class WeaponChangeing : MonoBehaviour
             shooting.instance.InUse = new List<Element>();
         }
         shooting.instance.CurrentEM = CurrnetWeapon;
-        shooting.instance.Key1Value = CurrnetWeapon.RequireKey[0];
-        shooting.instance.Key2Value = CurrnetWeapon.RequireKey[1];
-        shooting.instance.Key3Value = CurrnetWeapon.RequireKey[2];
+        SetWeaponColor.instance.SetColor(CurrnetWeapon.Value);
+        shooting.instance.MaxGate = CurrnetWeapon.MaxChargeTime;
+        shooting.instance.CancelGage();
+
     }
 
 }

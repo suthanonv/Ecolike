@@ -23,6 +23,8 @@ MonoBehaviour:
   UltimatePrefab: {fileID: 0}
   WeaponPrefab: {fileID: 4309009686696423798, guid: 5a6c7aac9ab773247a930e707f49f863, type: 3}
   MeleePrefab: {fileID: 8122778087974843794, guid: 6b13e3ac4b5fed4439912a4b564093ce, type: 3}
+  MeleeUlti: {fileID: 0}
+  MeleeUltiChargeTime: 0
   MeleeAttackCD: 1
   AttackCD: 1
   Force: 0
@@ -31,4 +33,6 @@ MonoBehaviour:
   isUtimateProjectile: 0
   UltiForce: 0
   UtimateUpTime: 0
-  MaxChargeTime: 5
+  MaxChargeTime: 1
+  possiblereact: []
+  ReactionFream: {fileID: 0}

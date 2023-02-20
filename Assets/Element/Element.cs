@@ -7,6 +7,7 @@ public class Element : ScriptableObject
     [Header("Effect")]
     public Color ElementColor;
     public AudioClip CastingSound;
+    public GameObject ElementFreame;
     [Header("Costing And Value")]
     public int Value;
     public List<int> RequireKey = new List<int>();

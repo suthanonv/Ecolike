@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-public class SmokeEnemyWalk : MonoBehaviour
+public class SmokeEnemyWalk : EnemyAttacking
 {
     public float Range;
     public float attackRange;
@@ -12,6 +12,7 @@ public class SmokeEnemyWalk : MonoBehaviour
     private Vector2 movement;
     [SerializeField] UnityEvent SkillAcive,OffSkillAcitve;
     [SerializeField] private float MoveSpeed;
+    [SerializeField] public StatHolder stat;
     float CurrentSpeed;
 
     private void Start()
@@ -19,6 +20,7 @@ public class SmokeEnemyWalk : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
+        MoveSpeed = stat.CharacterBaseStat.MaxSpeed;
         CurrentSpeed = MoveSpeed;
     }
 
@@ -63,6 +65,19 @@ public class SmokeEnemyWalk : MonoBehaviour
         else
         {
             CurrentSpeed = MoveSpeed;
+        }
+    }
+
+
+    public override void ONStatChange(bool changeToNormle)
+    {
+       if(changeToNormle)
+        {
+
+        }
+       else
+        {
+
         }
     }
 }

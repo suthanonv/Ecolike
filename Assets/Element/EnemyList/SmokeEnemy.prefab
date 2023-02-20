@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 1126609327609285047}
   - component: {fileID: 1126609327609285040}
   - component: {fileID: 1126609327609285046}
+  - component: {fileID: -1465973707187006837}
   m_Layer: 0
   m_Name: SmokeEnemy
   m_TagString: Enemy
@@ -71,7 +72,7 @@ Transform:
   - {fileID: 1126609327464382118}
   - {fileID: 1126609327919725481}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1126609327609285043
 SpriteRenderer:
@@ -210,6 +211,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   Damage: 10
+  Stat: {fileID: -1465973707187006837}
 --- !u!114 &1126609327609285041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +274,8 @@ MonoBehaviour:
   PointSpawning: {fileID: 1126609327464382118}
   TextUpTime: 0.1
   FloatingPoint: {fileID: 3098385133002220152, guid: dd61f8bac3638c444b337538e8083e7f, type: 3}
+  EffectPoiont: {fileID: 0}
+  stat: {fileID: -1465973707187006837}
 --- !u!114 &1126609327609285040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,6 +379,32 @@ MonoBehaviour:
         m_CallState: 2
   SkillActiveTime: 0.5
   anim: {fileID: 1126609327609285052}
+--- !u!114 &-1465973707187006837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126609327609285048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e55a8661cf1674a9ee3fad6447ae97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterBaseStat:
+    MaxHp: 100
+    MaxMana: 0
+    MaxSpeed: 0
+    CurentSpeed: 0
+  BaseDebuffStat:
+    DamageMultiple: 1
+  BaseCharacterDamage:
+    BaseMeleeDamage: 0
+    CurrentBaseMeleeDamage: 0
+    BaseSkillDamage: []
+    CurrentBaseSkillDamage: []
+    BaseUltimateDamage: 0
+    CurrentBaseUltimateDamage: 0
 --- !u!1 &1126609327919725482
 GameObject:
   m_ObjectHideFlags: 0

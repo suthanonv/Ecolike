@@ -328,7 +328,7 @@ BlendTree:
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 58ef6c37068c074478e585f0133db84c, type: 2}
-    m_Threshold: 0.061224498
+    m_Threshold: 0.107142866
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -336,7 +336,7 @@ BlendTree:
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 2bf1d9318e75b5f47a3ba5bf42eda569, type: 2}
-    m_Threshold: 0.122448996
+    m_Threshold: 0.21428573
     m_Position: {x: 1, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -344,40 +344,8 @@ BlendTree:
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 58ef6c37068c074478e585f0133db84c, type: 2}
-    m_Threshold: 0.18367349
+    m_Threshold: 0.3214286
     m_Position: {x: -1, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: Vetical
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 58ef6c37068c074478e585f0133db84c, type: 2}
-    m_Threshold: 0.24489799
-    m_Position: {x: -1, y: 1}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: Vetical
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 58ef6c37068c074478e585f0133db84c, type: 2}
-    m_Threshold: 0.30612248
-    m_Position: {x: -1, y: -1}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: Vetical
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 2bf1d9318e75b5f47a3ba5bf42eda569, type: 2}
-    m_Threshold: 0.36734697
-    m_Position: {x: 1, y: 1}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: Vetical
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 2bf1d9318e75b5f47a3ba5bf42eda569, type: 2}
-    m_Threshold: 0.42857146
-    m_Position: {x: 1, y: -1}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Vetical
@@ -385,7 +353,7 @@ BlendTree:
   m_BlendParameter: LastHorizontal
   m_BlendParameterY: LastVertical
   m_MinThreshold: 0
-  m_MaxThreshold: 0.42857146
+  m_MaxThreshold: 0.3214286
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
   m_BlendType: 1

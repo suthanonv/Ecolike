@@ -1,0 +1,16 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyAttacking : DamageAble
+{
+    public virtual void ONStatChange(bool changeToNormle)
+    {
+
+    }
+
+    public virtual void Skill()
+    {
+
+    }
+}

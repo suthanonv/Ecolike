@@ -44,7 +44,7 @@ public class MeleeAttack : MonoBehaviour
                 {
 
                     Instantiate(WeaponElement.MeleePrefab, Point.transform.position, RotationPoint.transform.rotation);
-                   
+
                 }
                 else
                 {
@@ -55,28 +55,36 @@ public class MeleeAttack : MonoBehaviour
                 PlayerWalk.instance.OnSlow(false);
                 MeleeChargeBar.instance.SetBar(Limit, 0);
             }
-          
+
         }
         else
         {
             CurrentCD -= Time.deltaTime;
         }
-                
+
     }
 
     public void DisalbespirteAndLight(bool check)
     {
-        if(check)
+        if (check)
         {
             render.enabled = false;
-         
+
         }
         else
         {
             render.enabled = true;
-            
-        }
-    }
 
+        }
+
+
+
+    }
+    private void OnDisable()
+    {
+        CurrentCharge = 0;
+        MeleeChargeBar.instance.SetBar(Limit, 0);
+
+    }
 
 }

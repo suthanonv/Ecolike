@@ -23,7 +23,10 @@ public class UiManager : MonoBehaviour
     [SerializeField] GameObject NotEnoughtBar;
     [SerializeField] Slider NotEnoughtSlider;
     [SerializeField] float SetActiveTIme = 0.1f;
-   
+
+    [Header("Element Fream")]
+    [SerializeField] Transform EmPickUPFreame;
+    [SerializeField] GameObject Freame;
    
         public void SetHealthValue(float MaxHealh, float CurrentHealth)
     {
@@ -120,6 +123,30 @@ public class UiManager : MonoBehaviour
             {
                 ManaLerp = false;
                 LastMana = LerpMana;
+            }
+        }
+    }
+
+    public void SetElmenetOnFreame(List<Element> setEm)
+    {
+          if(setEm.Count > 0)
+        {
+            Freame.SetActive(true);
+            foreach(Transform i in EmPickUPFreame)
+            {
+                Destroy(i.gameObject);
+            }
+            foreach(Element e in setEm)
+            {
+                Instantiate(e.ElementFreame, EmPickUPFreame.transform);
+            }
+        }
+          else
+        {
+            Freame.SetActive(false);
+            foreach (Transform i in EmPickUPFreame)
+            {
+                Destroy(i.gameObject);
             }
         }
     }
