@@ -26,7 +26,7 @@ public class EnemyHealth : EnemyAttacking
 
         if (AttackIncome != null && CurrentRedcution != null)
         {
-            if(AttackIncome == CurrentRedcution)
+            if(AttackIncome.TypeOfElement == CurrentRedcution.TypeOfElement)
             {
                 CurrentHealth -= Damage * 0.5f * stat.BaseDebuffStat.DamageMultiple;
             }

@@ -9,7 +9,7 @@ public class Shield : MonoBehaviour
     [SerializeField] Transform Point;
     [SerializeField] float ShieldUptime = 2;
     [SerializeField] Transform RotatePoint;
-    GameObject CurrentaShield;
+
     private void Awake()
     {
         instance = this;
@@ -61,11 +61,5 @@ public class Shield : MonoBehaviour
         OnShieldOff.Invoke();
     }
 
-    public void DestoryShield()
-    {
-        if(CurrentaShield != null)
-        {
-            Destroy(CurrentaShield);
-        }
-    }
+ 
 }

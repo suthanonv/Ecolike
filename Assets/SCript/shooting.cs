@@ -49,34 +49,7 @@ public class shooting : MonoBehaviour
         }
         //ChargedUltimate();
     }
-    bool Charge;
-    void ChargedUltimate()
-    {
-
-        if(Charge == false)
-        {
-            Slider.SetActive(false);
-            PlayerWalk.instance.OnSlow(false);
-        }
-        else
-        {
-            Slider.SetActive(true);
-        }
-
-
-        if (Charge && CurrentGage < MaxGate)
-        {
-            PlayerWalk.instance.OnSlow(false);
-            CurrentGage = Mathf.Lerp(CurrentGage, MaxGate +1, Time.deltaTime * CastingSpeed);
-        }
-        if(CurrentGage >= MaxGate)
-        {
-            PlayerWalk.instance.OnSlow(false);
-            CurrentGage = MaxGate;
-        }
-        UltimateGage.value = CurrentGage;
-    }
-
+  
     public void CancelGage()
     {
         InUse = new List<Element>();

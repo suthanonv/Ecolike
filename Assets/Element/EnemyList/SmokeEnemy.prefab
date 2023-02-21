@@ -257,6 +257,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   MoveSpeed: 3
+  stat: {fileID: -1465973707187006837}
 --- !u!114 &1126609327609285047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,6 +399,10 @@ MonoBehaviour:
     CurentSpeed: 0
   BaseDebuffStat:
     DamageMultiple: 1
+    MaxKncokBackForce: 0
+    CurrentKncokBackTime: 0
+    MaxStudingTime: 0
+    CurrentStudneingTIme: 0
   BaseCharacterDamage:
     BaseMeleeDamage: 0
     CurrentBaseMeleeDamage: 0

@@ -10,6 +10,7 @@ public class Element : ScriptableObject
     public GameObject ElementFreame;
     [Header("Costing And Value")]
     public int Value;
+    public ElementType TypeOfElement;
     public List<int> RequireKey = new List<int>();
     public List<RequireElment> AllRequire = new List<RequireElment>();
     public int ManaCost;
