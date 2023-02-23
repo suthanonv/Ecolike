@@ -1,15 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 public class StatHolder : MonoBehaviour
 {
     public BaseStat CharacterBaseStat;
     public DebuffStat BaseDebuffStat;
     public BaseDamaegStat BaseCharacterDamage;
+    public List<Resistance> BaseResistance;
+
+    public float GetResistance(ElementType GetType)
+    {
+        float resistance =  BaseResistance.FirstOrDefault(i => i.typeOfResis == GetType).ResistantAmount;
+
+        if(resistance <= 0)
+        {
+            return 1 + resistance * -1;
+        }
+        else if(resistance < 1)
+        {
+            return resistance;
+        }
+        else
+        {
+            return 0;
+        }
+
+    }
 }
 
 [System.Serializable]
+
+
 
 public struct BaseStat
 {
@@ -38,3 +60,11 @@ public struct DebuffStat
     public float MaxStudingTime;
     public float CurrentStudneingTIme;
 }
+
+[System.Serializable]
+public struct Resistance
+{
+    public ElementType typeOfResis;
+    public float ResistantAmount;
+}
+

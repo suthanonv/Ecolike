@@ -124,6 +124,7 @@ MonoBehaviour:
   Effect: {fileID: 8359514960164119545, guid: 2c786c5707ffb0143b8585bdce16327d, type: 3}
   EffectUpTime: 0.2
   Damage: 20
+  type: 2
 --- !u!114 &8919112944844032807
 MonoBehaviour:
   m_ObjectHideFlags: 0

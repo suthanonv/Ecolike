@@ -10,21 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed408b972cd44f948b41ddca923f5a4a, type: 3}
-  m_Name: Melee
+  m_Name: EmLess
   m_EditorClassIdentifier: 
   ElementColor: {r: 1, g: 1, b: 1, a: 1}
   CastingSound: {fileID: 8300000, guid: 96341ab323a808c42ae71ab68969cf52, type: 3}
+  ElementFreame: {fileID: 0}
   Value: 0
+  TypeOfElement: 0
   RequireKey: 000000000000000000000000
   AllRequire: []
   ManaCost: 0
   UltimateManaCost: 0
   ElementPrefab: {fileID: 2302464325218101486, guid: addf43f7d4df91a49b282ede40501bdf, type: 3}
   UltimatePrefab: {fileID: 0}
-  WeaponPrefab: {fileID: 4309009686696423798, guid: 5a6c7aac9ab773247a930e707f49f863, type: 3}
-  MeleePrefab: {fileID: 8122778087974843794, guid: 6b13e3ac4b5fed4439912a4b564093ce, type: 3}
+  WeaponPrefab: {fileID: 3901494356186831888, guid: 45e7094a159ccbb418ce15026df79d97, type: 3}
+  MeleePrefab: {fileID: 519219782060700063, guid: 13336dd0c9ac01c4b88d097d31d84d26, type: 3}
   MeleeUlti: {fileID: 0}
-  MeleeUltiChargeTime: 0
+  MeleeUltiChargeTime: 2
   MeleeAttackCD: 1
   AttackCD: 1
   Force: 0
@@ -35,4 +37,4 @@ MonoBehaviour:
   UtimateUpTime: 0
   MaxChargeTime: 1
   possiblereact: []
-  ReactionFream: {fileID: 0}
+  ReactionFream: {fileID: 56612409767515215, guid: 5848bba9f4025ee4c80569f299bfdb00, type: 3}

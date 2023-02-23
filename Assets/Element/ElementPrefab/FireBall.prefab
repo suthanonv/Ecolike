@@ -272,3 +272,5 @@ MonoBehaviour:
   Effect: {fileID: 1427801022144828576, guid: 1db8a9a5b059b8a48a3ca5883a8fd1d9, type: 3}
   EffectUpTime: 0.2
   Damage: 20
+  ProjectilEm: {fileID: 11400000, guid: 26faa097b7de3254599ad8f34962cbc0, type: 2}
+  type: 1

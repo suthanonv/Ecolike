@@ -272,3 +272,4 @@ MonoBehaviour:
   Effect: {fileID: 5822833055604716903, guid: 5622bf9f2e1227347acd02b44e2ee7fa, type: 3}
   EffectUpTime: 0.2
   Damage: 20
+  type: 3

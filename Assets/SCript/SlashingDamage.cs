@@ -7,8 +7,9 @@ public class SlashingDamage : MonoBehaviour
    
     [SerializeField] float EffectUpTime;
     [SerializeField] float Damage;
+    [SerializeField] Element SlashElement;
     Transform Point;
- 
+    [SerializeField] ElementType Type;
  
 
     private void Start()
@@ -28,15 +29,21 @@ public class SlashingDamage : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.GetComponent<EnemyAttacking>() != null)
         {
-            collision.GetComponent<DamageAble>().TakeDamage(Damage);
-            collision.GetComponent<Knockback>().PlayFeedBack(this.gameObject);
+            collision.GetComponent<EnemyAttacking>().TakeDamage(Damage, Type);
         }
-        if (collision.gameObject.GetComponent<DamageAble>() != null && collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "Player")
+
+        if (collision.gameObject.GetComponent<EnemyHealth>() != null)
         {
-            collision.GetComponent<DamageAble>().TakeDamage(Damage);
-         
+            collision.GetComponent<EnemyHealth>().SetOxidation();
+            collision.GetComponent<EnemyHealth>().TakeDamage(Damage, Type);
+          //  collision.GetComponent<EnemyHealth>().ReleaseReduction(SlashElement);
+        }
+
+        if (collision.gameObject.GetComponent<Knockback>() != null && collision.gameObject.tag != "Player")
+        {
+            collision.GetComponent<Knockback>().PlayFeedBack(this.gameObject);
         }
     }
 

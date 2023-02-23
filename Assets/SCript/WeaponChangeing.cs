@@ -15,7 +15,7 @@ public class WeaponChangeing : MonoBehaviour
     float CurrentSwapCD;
     [SerializeField] float SwapCd;
     Element CurrentEM;
-  public  Element CurrnetWeapon;
+     public  Element CurrnetWeapon;
     [SerializeField] Transform WeaponPoint;
 
     private void Awake()

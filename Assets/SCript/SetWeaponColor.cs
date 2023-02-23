@@ -32,10 +32,17 @@ public class SetWeaponColor : MonoBehaviour
 
     public void DisableBall(bool isEnabled)
     {
-      
+
+        if (!isEnabled)
+        {
             this.GetComponent<SpriteRenderer>().enabled = false;
             this.GetComponent<Light2D>().enabled = false;
-        
+        }
+        else
+        {
+            this.GetComponent<SpriteRenderer>().enabled = true;
+            this.GetComponent<Light2D>().enabled = true;
+        }
     }
 
     public void OnStopRoate(bool stop)

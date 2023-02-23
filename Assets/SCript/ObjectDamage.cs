@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ObjectDamage : DamageAble
+public class ObjectDamage : EnemyAttacking
 {
     [SerializeField] float Health;
     float CurrentHealth;
@@ -21,7 +21,7 @@ public class ObjectDamage : DamageAble
     {
         CurrentHealth = Health;
     }
-    public override void TakeDamage(float Damage)
+    public override void TakeDamage(float Damage,ElementType type)
     {
         CurrentHealth -= Damage;
         GameObject Point = Instantiate(FloatingPoint, PointSpawning.transform.position, Quaternion.identity) as GameObject;

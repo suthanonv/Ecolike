@@ -6,11 +6,11 @@ using UnityEngine.Rendering.Universal;
 public class MeleeAttack : MonoBehaviour
 {
     public static MeleeAttack instace;
-    [SerializeField] GameObject Slash;
     [SerializeField] SpriteRenderer render;
 
     [SerializeField] Element WeaponElement;
     [SerializeField] Transform Point;
+    [SerializeField] Light2D lights;
     Transform RotationPoint;
     public KeyCode AttackKey = KeyCode.Mouse0;
     float ATKCD;
@@ -34,6 +34,7 @@ public class MeleeAttack : MonoBehaviour
             MeleeChargeBar.instance.SetColor(WeaponElement);
             if (Input.GetKey(AttackKey))
             {
+          
                 CurrentCharge = Mathf.Lerp(CurrentCharge, Limit + 1, Time.deltaTime);
                 PlayerWalk.instance.OnSlow(true);
                 MeleeChargeBar.instance.SetBar(Limit, CurrentCharge);
@@ -69,11 +70,12 @@ public class MeleeAttack : MonoBehaviour
         if (check)
         {
             render.enabled = false;
-
+            lights.enabled = false;
         }
         else
         {
             render.enabled = true;
+            lights.enabled = true;
 
         }
 

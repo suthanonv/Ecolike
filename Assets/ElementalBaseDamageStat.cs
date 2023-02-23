@@ -5,13 +5,15 @@ using System.Linq;
 
 public enum ElementType
 { 
- fire,water,earth
+ less,fire,water,earth
 }
 
 [CreateAssetMenu]
 public class ElementalBaseDamageStat : ScriptableObject
 {
     public List<ElementBaseStat> AllElementalBaseStat = new List<ElementBaseStat>();
+
+   
 
    public ElementBaseStat GetBaseDamage(ElementType GetType)
     {
@@ -24,6 +26,7 @@ public class ElementalBaseDamageStat : ScriptableObject
 
         return stat;
     }
+
 }
 
 
@@ -33,7 +36,6 @@ public struct ElementBaseStat
     public ElementType type;
     public float baseDamage;
     public float CurrentBaseDamage;
-
 }
 
 

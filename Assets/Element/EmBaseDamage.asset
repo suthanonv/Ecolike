@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30875d16a81a5d043a01becae96411dd, type: 3}
   m_Name: EmBaseDamage
   m_EditorClassIdentifier: 
+  AllElementalBaseStat:
+  - type: 0
+    baseDamage: 0
+    CurrentBaseDamage: 0

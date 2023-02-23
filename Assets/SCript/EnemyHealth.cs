@@ -5,12 +5,21 @@ using TMPro;
 using System.Linq;
 public class EnemyHealth : EnemyAttacking
 {
-    [SerializeField] float MaxHealth;
-    [SerializeField] float CurrentHealth;
+    
+     float MaxHealth;
+     float CurrentHealth;
+  
+    [Header("Damage Text")]
     [SerializeField] Transform PointSpawning;
     [SerializeField] float TextUpTime;
     [SerializeField] GameObject FloatingPoint;
+
+
+    [Header("Reaction Ui")]
+    [SerializeField] GameObject EffectParent;
     [SerializeField] Transform EffectPoiont;
+     
+    [Header("Stat")]
     [SerializeField] StatHolder stat;
     
    public  delegate void Debuff();
@@ -21,30 +30,54 @@ public class EnemyHealth : EnemyAttacking
         MaxHealth = stat.CharacterBaseStat.MaxHp;
         CurrentHealth = MaxHealth;
     }
-    public override void TakeDamage(float Damage)
-    {
 
-        if (AttackIncome != null && CurrentRedcution != null)
+    public override void TakeDamage(float Damage, ElementType incomeType)
+    {
+        Damage *= stat.GetResistance(incomeType);
+        float DamageShowing = Damage;
+
+        if (!isINcomeOxid)
         {
-            if(AttackIncome.TypeOfElement == CurrentRedcution.TypeOfElement)
+            if (AttackIncome != null && CurrentRedcution != null)
             {
-                CurrentHealth -= Damage * 0.5f * stat.BaseDebuffStat.DamageMultiple;
+                if (AttackIncome.TypeOfElement == CurrentRedcution.TypeOfElement)
+                {
+                    CurrentHealth -= Damage * 0.5f * stat.BaseDebuffStat.DamageMultiple;
+                    DamageShowing = Damage * 0.5f * stat.BaseDebuffStat.DamageMultiple;
+                }
+            }
+            else
+            {
+                CurrentHealth -= Damage * stat.BaseDebuffStat.DamageMultiple;
+                DamageShowing = Damage * stat.BaseDebuffStat.DamageMultiple;
             }
         }
         else
         {
-            CurrentHealth -= Damage * stat.BaseDebuffStat.DamageMultiple;
+            if(CurrentRedcution == null)
+            {
+                CurrentHealth -= Damage * 0.5f * stat.BaseDebuffStat.DamageMultiple;
+                DamageShowing = Damage * 0.5f * stat.BaseDebuffStat.DamageMultiple;
+            }
+            else
+            {
+                CurrentHealth -= Damage * stat.BaseDebuffStat.DamageMultiple * 2;
+                DamageShowing = Damage * stat.BaseDebuffStat.DamageMultiple * 2;
+            }
+            isINcomeOxid = false;
         }
+        int showed = Mathf.RoundToInt(DamageShowing);
 
         GameObject Point = Instantiate(FloatingPoint, PointSpawning.transform.position, Quaternion.identity) as GameObject;
-        Point.transform.GetChild(0).GetComponent<TextMeshPro>().text = Damage.ToString();
+        Point.transform.GetChild(0).GetComponent<TextMeshPro>().text = showed.ToString();
         Destroy(Point, TextUpTime);
-        
-        if (CurrentHealth <=0 )
+
+        if (CurrentHealth <= 0)
         {
             Destroy(gameObject);
         }
     }
+
 
     Element CurrentRedcution;
   Element  AttackIncome;
@@ -53,10 +86,17 @@ public class EnemyHealth : EnemyAttacking
         AttackIncome = type;
     }
 
+    bool isINcomeOxid;
+    public void SetOxidation()
+    {
+        isINcomeOxid = true;
+    }
+
     public override void SetReduction(Element ElementIncome)
     {
         CurrentRedcution = ElementIncome;
-       foreach(Transform i in EffectPoiont)
+        EffectParent.SetActive(true);
+       foreach (Transform i in EffectPoiont)
         {
             Destroy(i.gameObject);
         }
@@ -70,6 +110,8 @@ public class EnemyHealth : EnemyAttacking
             int Sum = CurrentRedcution.Value - ElemnetIncome.Value;
             ElmentReaction releaseted = GetReaction(Sum);
             Instantiate(releaseted.ReactPrefab, this.transform.position, Quaternion.identity);
+            EffectParent.SetActive(false);
+            CurrentRedcution = null;
         }
     }
 
@@ -93,8 +135,7 @@ public class EnemyHealth : EnemyAttacking
         }
     }
 
-
-
+    
 
 }
 

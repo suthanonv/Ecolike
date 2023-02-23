@@ -17,7 +17,7 @@ public class PlayerHealth : DamageAble
         UiManager.instance.SetHealthValue(MaxHealth,CurrentHealth);
     }
 
-    public override void TakeDamage(float Damage)
+    public override void TakeDamage(float Damage,ElementType type)
     {
         CurrentHealth -= Damage;
         GotHit = true;

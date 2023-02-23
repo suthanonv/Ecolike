@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class SmokeEnemyWalk : EnemyAttacking
 {
     public float Range;
+
     public float attackRange;
     Animator anim;
     Transform player;
@@ -44,17 +45,10 @@ public class SmokeEnemyWalk : EnemyAttacking
     }
     void moveCharacter(Vector2 direction)
     {
-        if (Vector2.Distance(player.transform.position, this.transform.position) <= Range)
-        {
+     
             rb.MovePosition((Vector2)transform.position + (direction * Time.deltaTime * CurrentSpeed));
             SkillAcive.Invoke();
         }
-        else if(Vector2.Distance(player.transform.position, this.transform.position) > Range)
-        {
-            OffSkillAcitve.Invoke();
-        }
-
-    }
 
     public void BuffSpeed(bool Buff)
     {

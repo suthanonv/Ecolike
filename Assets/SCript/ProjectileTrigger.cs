@@ -7,21 +7,28 @@ public class ProjectileTrigger : MonoBehaviour
     [SerializeField] GameObject Effect;
     [SerializeField] float EffectUpTime;
     [SerializeField] float Damage;
+    [SerializeField] Element ProjectilEm;
+    [SerializeField] ElementType type;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.GetComponent<EnemyAttacking>() != null)
         {
-            collision.GetComponent<DamageAble>().TakeDamage(Damage);
+            collision.GetComponent<EnemyAttacking>().TakeDamage(Damage, type);
             SpawnEffect(collision.gameObject.transform);
         }
-        if(collision.gameObject.tag == "Wall")
+
+        if (collision.gameObject.GetComponent<EnemyHealth>() != null)
         {
-            SpawnEffect(this.gameObject.transform);
+            collision.GetComponent<EnemyHealth>().SetOxidation();
+            collision.GetComponent<EnemyHealth>().TakeDamage(Damage, type);
+       //     collision.GetComponent<EnemyHealth>().ReleaseReduction(ProjectilEm);
+            SpawnEffect(collision.gameObject.transform);
         }
-        if(collision.gameObject.GetComponent<DamageAble>() != null && collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "Player")
+
+        if (collision.gameObject.GetComponent<Knockback>() != null && collision.gameObject.tag != "Player")
         {
-            collision.GetComponent<DamageAble>().TakeDamage(Damage);
-            SpawnEffect(this.gameObject.transform);
+            collision.GetComponent<Knockback>().PlayFeedBack(this.gameObject);
+            SpawnEffect(collision.gameObject.transform);
         }
     }
 

@@ -8,6 +8,7 @@ public class MeleeSlash : MonoBehaviour
     [SerializeField] float DestoryTime;
     [SerializeField] float Damage;
     [SerializeField] Element SlashEm;
+    [SerializeField] ElementType type;
     private void Start()
     {
         PlayerWalk.instance.StopWalk(true);
@@ -19,16 +20,23 @@ public class MeleeSlash : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.GetComponent<EnemyAttacking>() != null)
         {
-            other.GetComponent<DamageAble>().TakeDamage(Damage);
+            other.GetComponent<EnemyAttacking>().TakeDamage(Damage, type);
+        } 
+        if (other.gameObject.GetComponent<Knockback>() != null && other.gameObject.tag != "Player")
+        {
             other.GetComponent<Knockback>().PlayFeedBack(this.gameObject);
         }
-        if (other.gameObject.GetComponent<DamageAble>() != null && other.gameObject.tag != "Enemy" && other.gameObject.tag != "Player")
-        {
-            other.GetComponent<DamageAble>().TakeDamage(Damage);
 
-        }
+        if (other.gameObject.GetComponent<EnemyHealth>() != null)
+        {
+            other.GetComponent<EnemyHealth>().TakeDamage(Damage, type);
+            other.GetComponent<EnemyHealth>().EmAttackType(SlashEm);
+            other.GetComponent<EnemyHealth>().SetReduction(SlashEm);
+        } 
+
+       
     }
 
     private void OnDestroy()
