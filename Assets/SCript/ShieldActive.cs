@@ -38,11 +38,11 @@ public class ShieldActive : MonoBehaviour
         SetWeaponColor.instance.DisableBall(true);
     }
 
-    public void SetColor(int value)
+    public void SetColor(Element Current)
     {
-        Element CurrentEm = ElementManage.instance.GetEm(value);
-        sprite.color = CurrentEm.ElementColor;
-        lights.color = CurrentEm.ElementColor;
+        
+        sprite.color = Current.ElementColor;
+        lights.color = Current.ElementColor;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

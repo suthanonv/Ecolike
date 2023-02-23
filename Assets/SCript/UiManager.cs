@@ -19,10 +19,6 @@ public class UiManager : MonoBehaviour
     [SerializeField] Slider AnimManaSlider;
     int LastMana;
 
-    [Header("Mana Not Enought ")]
-    [SerializeField] GameObject NotEnoughtBar;
-    [SerializeField] Slider NotEnoughtSlider;
-    [SerializeField] float SetActiveTIme = 0.1f;
 
     [Header("Element Fream")]
     [SerializeField] Transform EmPickUPFreame;
@@ -86,19 +82,6 @@ public class UiManager : MonoBehaviour
         }
     }
 
-    public void OnManaNotEnought(int MaxMana, int NotEnougt)
-    {
-        NotEnoughtBar.SetActive(true);
-        NotEnoughtSlider.maxValue = MaxMana;
-        NotEnoughtSlider.value = NotEnougt;
-        Invoke("ClsoeNotEnougt", SetActiveTIme);
-    }
-    
-    void ClsoeNotEnougt()
-    {
-        NotEnoughtBar.SetActive(false);
-    }
-    
     bool HealthLerp;
     float LerpHealth;
 

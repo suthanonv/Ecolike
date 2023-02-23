@@ -33,6 +33,18 @@ public class Knockback : MonoBehaviour
         rb2d.AddForce(direction * CurrentStength, ForceMode2D.Impulse);
         StartCoroutine(Reset(CurrentDelay));
     }
+
+    public void NormleFeedBack(GameObject sender)
+    {
+        float CurrentStength = strength /2;
+        float CurrentDelay = delay;
+        StopAllCoroutines();
+        OnBegin?.Invoke();
+        Vector2 direction = (transform.position - sender.transform.position).normalized;
+        rb2d.AddForce(direction * CurrentStength, ForceMode2D.Impulse);
+        StartCoroutine(Reset(CurrentDelay));
+    }
+
     private IEnumerator Reset(float delays)
     {
         yield return new WaitForSeconds(delays);

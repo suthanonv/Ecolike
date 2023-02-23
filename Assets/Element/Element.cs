@@ -34,10 +34,24 @@ public class Element : ScriptableObject
     public float BulletUpTime;
 
     [Header("Ultimate Stat")]
-    public bool isUtimateProjectile;
-    public float UltiForce;
+    public projectileRequimrent UtimateProjectile;
     public float UtimateUpTime;
    public float MaxChargeTime;
+
+    [Header("Melee Skill")]
+    public Sprite MeleeSkillImg;
+    public GameObject MeleeSkill;
+    public projectileRequimrent MeProjectileCheck;
+    public float MeleeSkillCooldown;
+    public float CurrentMeleeSkillCooldown;
+    
+   
+    [Header("Magic Skill")]
+    public Sprite MagicSkilImg;
+    public GameObject MagicSkill;
+    public projectileRequimrent MgProjectileCheck;
+    public float MagicSkillCooldown;
+    public float CurrentMagicSkillCooldown;
 
     [Header("Element Reaction")]
     public List<ElmentReaction> possiblereact = new List<ElmentReaction>();
@@ -55,6 +69,14 @@ public class ElmentReaction {
 
     public int Value;
     public GameObject ReactPrefab;
+}
+
+[System.Serializable]
+public class projectileRequimrent
+{
+    public bool isProjectile;
+    public float Force;
+    public float projectileUptime;
 }
 
 

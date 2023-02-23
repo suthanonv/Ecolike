@@ -31,7 +31,6 @@ public class MeleeSlash : MonoBehaviour
 
         if (other.gameObject.GetComponent<EnemyHealth>() != null)
         {
-            Debug.Log("Slash");
             other.GetComponent<EnemyHealth>().TakeDamage(Damage, type);
             other.GetComponent<EnemyHealth>().EmAttackType(SlashEm);
             other.GetComponent<EnemyHealth>().SetReduction(SlashEm);

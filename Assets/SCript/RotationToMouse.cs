@@ -14,11 +14,20 @@ public class RotationToMouse : MonoBehaviour
 
     void Update()
     {
-        mousePos = MainCam.ScreenToWorldPoint(Input.mousePosition);
+        if (!pause)
+        {
+            mousePos = MainCam.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector3 rotation = mousePos - transform.position;
+            Vector3 rotation = mousePos - transform.position;
 
-        float rotz = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rotz);
+            float rotz = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, rotz);
+        }
+    }
+
+    bool pause;
+    public void Pauseed(bool isPaused)
+    {
+        pause = isPaused;
     }
 }

@@ -25,9 +25,9 @@ public class Shield : MonoBehaviour
         {
             if (Input.GetKey(ShieldKey) && CanShields)
             {
-                int Sum = shooting.instance.sum;
+                
                 GameObject CurrentaShield = Instantiate(Shields, Point.transform.position, RotatePoint.transform.rotation);
-                CurrentaShield.GetComponent<ShieldActive>().SetColor(Sum);
+                CurrentaShield.GetComponent<ShieldActive>().SetColor(shooting.instance.CurrentEM);
                 Destroy(CurrentaShield, ShieldUptime);
                 CurrentCoolDown = ShieldCD;
             }
