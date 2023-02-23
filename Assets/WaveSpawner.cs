@@ -20,8 +20,8 @@ public class WaveSpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(EnemeySpawnTime);
             Instantiate(Enemy, GetPoint(), Quaternion.identity);
+            yield return new WaitForSeconds(EnemeySpawnTime);
         }
     }
 

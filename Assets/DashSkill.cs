@@ -9,6 +9,7 @@ public class DashSkill : MonoBehaviour
     [SerializeField] float DashCoolDown = 1;
     [SerializeField] float CurrentCoolDown;
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] Transform DashPoint;
     [SerializeField] UnityEvent Ondash, OnDashdone;
     private void Update()
     {
@@ -16,12 +17,12 @@ public class DashSkill : MonoBehaviour
         {
             if(Input.GetKeyDown(DashKey))
             {
-     
-            }
+                Ondash.Invoke();}
+            CurrentCoolDown = DashCoolDown;
         }
         else
         {
-
+            CurrentCoolDown -= Time.deltaTime;
         }
 
     }

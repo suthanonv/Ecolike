@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65038e340a82aca4ab5c12e90c7ec1ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestoryTime: 0.4
+  DestoryTime: 0.2
   Damage: 100
   SlashEm: {fileID: 11400000, guid: c99502f60f6273847872734d5ccb9146, type: 2}
   type: 0

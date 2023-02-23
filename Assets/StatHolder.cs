@@ -19,7 +19,9 @@ public class StatHolder : MonoBehaviour
         }
         else if(resistance < 1)
         {
-            return resistance;
+            resistance -= 1;
+            return resistance * -1;
+            
         }
         else
         {

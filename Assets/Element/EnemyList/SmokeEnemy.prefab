@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2d: {fileID: 1126609327609285055}
-  strength: 6
+  strength: 15
   delay: 0.15
   OnBegin:
     m_PersistentCalls:
@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterBaseStat:
-    MaxHp: 100
+    MaxHp: 300
     MaxMana: 0
     MaxSpeed: 3
     CurentSpeed: 0
@@ -413,7 +413,7 @@ MonoBehaviour:
   BaseResistance:
   - typeOfResis: 0
     ResistantAmount: 0
-  - typeOfResis: 1
+  - typeOfResis: 0
     ResistantAmount: 0
   - typeOfResis: 2
     ResistantAmount: 0
