@@ -36,13 +36,14 @@ public class SwapCamera : MonoBehaviour
         {
             if (Input.GetKeyDown(swapKey) && swap == CurrentnSwap.Player)
             {
-
                 SwapToWeapon();
+                CurrentCoolDown = SwapingCooldown;
             }
             else if (Input.GetKeyDown(swapKey) && swap == CurrentnSwap.Weapon)
             {
 
                 SwapToPlayer();
+                CurrentCoolDown = SwapingCooldown;
             }
         }
         else

@@ -212,6 +212,9 @@ public class shooting : MonoBehaviour
             WeaponChangeing.instance.CurrnetWeapon = this.CurrentEM;
             WeaponChangeing.instance.SetHandlleWeapon();
         }
+        Key1Value = 0;
+        Key2Value = 0;
+        Key3Value = 0;
     }
    
 

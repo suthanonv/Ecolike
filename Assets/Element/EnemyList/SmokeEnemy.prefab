@@ -418,7 +418,7 @@ MonoBehaviour:
   - typeOfResis: 2
     ResistantAmount: 0
   - typeOfResis: 3
-    ResistantAmount: 0
+    ResistantAmount: -5
 --- !u!1 &2084407638609357824
 GameObject:
   m_ObjectHideFlags: 0

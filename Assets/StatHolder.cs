@@ -15,7 +15,7 @@ public class StatHolder : MonoBehaviour
 
         if(resistance <= 0)
         {
-            return 1 + resistance * -1;
+            return 1 + (resistance / -10);
         }
         else if(resistance < 1)
         {

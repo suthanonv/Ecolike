@@ -23,6 +23,15 @@ public class UiManager : MonoBehaviour
     [Header("Element Fream")]
     [SerializeField] Transform EmPickUPFreame;
     [SerializeField] GameObject Freame;
+
+
+    [Header("WeaponBase Skill")]
+    [SerializeField] Image BaseCharaterSkillFreme;
+    [SerializeField] Image CooldownImage;
+
+    [Header("Key binding Fream")]
+    [SerializeField] GameObject ClosePhase;
+    [SerializeField] GameObject OpenPhase;
    
         public void SetHealthValue(float MaxHealh, float CurrentHealth)
     {
@@ -131,6 +140,19 @@ public class UiManager : MonoBehaviour
             {
                 Destroy(i.gameObject);
             }
+        }
+    }
+    public void KeyBinding(bool isOpen)
+    {
+        if(isOpen)
+        {
+            ClosePhase.SetActive(false);
+            OpenPhase.SetActive(true);
+        }
+        else
+        {
+            ClosePhase.SetActive(true);
+            OpenPhase.SetActive(false);
         }
     }
 }

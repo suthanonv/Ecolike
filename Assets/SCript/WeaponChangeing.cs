@@ -143,6 +143,9 @@ public class WeaponChangeing : MonoBehaviour
         {
             shooting.instance.InUse = new List<Element>();
         }
+        Key1Value = 0;
+        Key2Value = 0;
+        Key3Value = 0;
         shooting.instance.CurrentEM = CurrnetWeapon;
         SetWeaponColor.instance.SetColor(CurrnetWeapon.Value);
         shooting.instance.MaxGate = CurrnetWeapon.MaxChargeTime;
