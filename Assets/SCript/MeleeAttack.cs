@@ -21,6 +21,7 @@ public class MeleeAttack : MonoBehaviour
     }
     private void Start()
     {
+        PlayerHealth.instance.OnHit.AddListener(CancelGate);
         RotationPoint = GameObject.FindWithTag("Weapon").transform;
         ATKCD = WeaponElement.MeleeAttackCD;
     }
@@ -62,7 +63,11 @@ public class MeleeAttack : MonoBehaviour
         {
             CurrentCD -= Time.deltaTime;
         }
+    }
 
+    public void CancelGate()
+    {
+        CurrentCharge = 0;
     }
 
     public void DisalbespirteAndLight(bool check)
@@ -78,15 +83,16 @@ public class MeleeAttack : MonoBehaviour
             lights.enabled = true;
 
         }
-
-
-
     }
     private void OnDisable()
     {
         CurrentCharge = 0;
         MeleeChargeBar.instance.SetBar(Limit, 0);
+    }
 
+    private void OnDestroy()
+    {
+        PlayerHealth.instance.OnHit.RemoveListener(CancelGate);
     }
 
 }

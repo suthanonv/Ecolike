@@ -52,6 +52,7 @@ public class shooting : MonoBehaviour
   
     public void CancelGage()
     {
+        CurrentGage = 0;
         InUse = new List<Element>();
         UiManager.instance.SetElmenetOnFreame(InUse);
     }
@@ -90,7 +91,8 @@ public class shooting : MonoBehaviour
             SetWeaponColor.instance.SetColor(ElementManage.instance.GetEmByRequire(InUse).Value);
             CurrentEM = ElementManage.instance.GetEmByRequire(InUse);
             CancelGage();
-            CurrentGage = 0;
+            CurrentCD = 0;
+             CurrentGage = 0;
             MaxGate = CurrentEM.MaxChargeTime;
             UltimateGage.maxValue = MaxGate;
         }
@@ -212,6 +214,7 @@ public class shooting : MonoBehaviour
             WeaponChangeing.instance.CurrnetWeapon = this.CurrentEM;
             WeaponChangeing.instance.SetHandlleWeapon();
         }
+        UiManager.instance.SetElementSkillSprite(SwapCamera.instance.swap, WeaponChangeing.instance.CurrnetWeapon);
         Key1Value = 0;
         Key2Value = 0;
         Key3Value = 0;

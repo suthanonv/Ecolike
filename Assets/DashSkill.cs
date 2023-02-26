@@ -13,7 +13,7 @@ public class DashSkill : MonoBehaviour
     [SerializeField] Transform DashPosition;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] UnityEvent Ondash, OnDashdone;
-
+    float AnimtaedCooldown;
     private void Update()
     {
         Vector3 direction = DashPosition.position - transform.position;
@@ -22,16 +22,21 @@ public class DashSkill : MonoBehaviour
 
         if (CurrentCoolDown <= 0)
         {
-            if(Input.GetKeyDown(DashKey))
+            UiManager.instance.SetBaseSkillCooldown(CurrentCoolDown);
+            if (Input.GetKeyDown(DashKey))
             {
                 Ondash.Invoke();
                 DashMechanic(DashPosition.position);
                 CurrentCoolDown = DashCoolDown;
+                AnimtaedCooldown = DashCoolDown;
+                UiManager.instance.BaseWeaponCooldown.fillAmount = 1;
             }
         }
         else
         {
             CurrentCoolDown -= Time.deltaTime;
+            UiManager.instance.BaseWeaponCooldown.fillAmount -= 1 / AnimtaedCooldown * Time.deltaTime;
+            UiManager.instance.SetBaseSkillCooldown(CurrentCoolDown);
         }
     }
 
@@ -55,7 +60,14 @@ public class DashSkill : MonoBehaviour
     }
 
 
-
-
+    private void OnEnable()
+    {
+        if(CurrentCoolDown > 0)
+        {
+            AnimtaedCooldown = CurrentCoolDown;
+            UiManager.instance.BaseWeaponCooldown.fillAmount = CurrentCoolDown;
+            UiManager.instance.SetBaseSkillCooldown(CurrentCoolDown);
+        }
+    }
 
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EmLess
   m_EditorClassIdentifier: 
   ElementColor: {r: 1, g: 1, b: 1, a: 1}
-  CastingSound: {fileID: 8300000, guid: 96341ab323a808c42ae71ab68969cf52, type: 3}
+  CastingSound: {fileID: 8300000, guid: e1f70ff0afa1b9441b920e6152af83fa, type: 3}
   ElementFreame: {fileID: 0}
   Value: 0
   TypeOfElement: 0
@@ -21,7 +21,7 @@ MonoBehaviour:
   AllRequire: []
   ManaCost: 0
   UltimateManaCost: 0
-  ElementPrefab: {fileID: 2302464325218101486, guid: addf43f7d4df91a49b282ede40501bdf, type: 3}
+  ElementPrefab: {fileID: 9135758469456327336, guid: 9d77adce942680e4c80e2feb1a1a128b, type: 3}
   UltimatePrefab: {fileID: 0}
   WeaponPrefab: {fileID: 3901494356186831888, guid: 45e7094a159ccbb418ce15026df79d97, type: 3}
   MeleePrefab: {fileID: 519219782060700063, guid: 13336dd0c9ac01c4b88d097d31d84d26, type: 3}
@@ -29,12 +29,30 @@ MonoBehaviour:
   MeleeUltiChargeTime: 2
   MeleeAttackCD: 1
   AttackCD: 1
-  Force: 0
+  Force: 15
   isProjectile: 1
-  BulletUpTime: 0.25
-  isUtimateProjectile: 0
-  UltiForce: 0
+  BulletUpTime: 2
+  UtimateProjectile:
+    isProjectile: 0
+    Force: 0
+    projectileUptime: 0
   UtimateUpTime: 0
   MaxChargeTime: 1
+  MeleeSkillImg: {fileID: 0}
+  MeleeSkill: {fileID: 0}
+  MeProjectileCheck:
+    isProjectile: 0
+    Force: 0
+    projectileUptime: 0
+  MeleeSkillCooldown: 0
+  CurrentMeleeSkillCooldown: 0
+  MagicSkilImg: {fileID: 0}
+  MagicSkill: {fileID: 0}
+  MgProjectileCheck:
+    isProjectile: 0
+    Force: 0
+    projectileUptime: 0
+  MagicSkillCooldown: 0
+  CurrentMagicSkillCooldown: 0
   possiblereact: []
   ReactionFream: {fileID: 56612409767515215, guid: 5848bba9f4025ee4c80569f299bfdb00, type: 3}

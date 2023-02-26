@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class UiManager : MonoBehaviour
 {
     public static UiManager instance;
@@ -32,8 +33,19 @@ public class UiManager : MonoBehaviour
     [Header("Key binding Fream")]
     [SerializeField] GameObject ClosePhase;
     [SerializeField] GameObject OpenPhase;
-   
-        public void SetHealthValue(float MaxHealh, float CurrentHealth)
+
+    [Header("Weapon Base Skill Freame")]
+    [SerializeField] Image SkillImage;
+    [SerializeField] Sprite DashSprite;
+    [SerializeField] Sprite ShieldSprite;
+    public  Image BaseWeaponCooldown;
+    [SerializeField] TextMeshProUGUI coldowntext;
+
+    [Header("Element Skill Freame")]
+    [SerializeField] Image ElementSkillImage;
+    public Image ElementnCooldown;
+    [SerializeField] TextMeshProUGUI Elementcoldowntext;
+    public void SetHealthValue(float MaxHealh, float CurrentHealth)
     {
         HealtSlider.maxValue = MaxHealh;
         HealtSlider.value = CurrentHealth;
@@ -153,6 +165,55 @@ public class UiManager : MonoBehaviour
         {
             ClosePhase.SetActive(true);
             OpenPhase.SetActive(false);
+        }
+    }
+
+    public void SetBaseSkillImage(CurrentnSwap swaped)
+    {
+        if (swaped == CurrentnSwap.Player)
+        {
+            SkillImage.sprite = DashSprite; 
+        }
+        else
+        {
+            SkillImage.sprite = ShieldSprite;
+        }
+    }
+
+
+    public void SetBaseSkillCooldown(float CurrentCooldown)
+    {
+        if(CurrentCooldown <= 0)
+        {
+            BaseWeaponCooldown.fillAmount = 0;
+            coldowntext.text = "";
+        }
+        else
+        {
+            coldowntext.text = Mathf.Round(CurrentCooldown).ToString();
+        }
+    }
+    public void SetElementSkillCooldown(float CurrentCoolDown)
+    {
+        if (CurrentCoolDown <= 0)
+        {
+         //   ElementnCooldown.fillAmount = 0;
+         //   Elementcoldowntext.text = "";
+        }
+        else
+        {
+       //     Elementcoldowntext.text = Mathf.Round(CurrentCoolDown).ToString();
+        }
+    }
+    public void SetElementSkillSprite(CurrentnSwap swaped, Element currnetElement)
+    {
+       if(swaped == CurrentnSwap.Player)
+        {
+        //    ElementSkillImage.sprite = currnetElement.MeleeSkillImg;
+        }
+        else
+        {
+         //   ElementSkillImage.sprite = currnetElement.MagicSkilImg;
         }
     }
 }

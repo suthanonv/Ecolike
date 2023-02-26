@@ -39,16 +39,18 @@ public class Element : ScriptableObject
    public float MaxChargeTime;
 
     [Header("Melee Skill")]
+    public int MeleeSkillManaCost;
     public Sprite MeleeSkillImg;
-    public GameObject MeleeSkill;
+    public GameObject MeleeSkillPrefab;
     public projectileRequimrent MeProjectileCheck;
     public float MeleeSkillCooldown;
     public float CurrentMeleeSkillCooldown;
     
    
     [Header("Magic Skill")]
+    public int MagicSkillManaCost;
     public Sprite MagicSkilImg;
-    public GameObject MagicSkill;
+    public GameObject MagicSkillPrefab;
     public projectileRequimrent MgProjectileCheck;
     public float MagicSkillCooldown;
     public float CurrentMagicSkillCooldown;

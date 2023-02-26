@@ -1,9 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class PlayerHealth : DamageAble
 {
+    public static PlayerHealth instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     [SerializeField] float MaxHealth;
     float CurrentHealth;
     bool GotHit;
@@ -11,6 +18,7 @@ public class PlayerHealth : DamageAble
     float CurrentTime;
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] Color HitColor;
+    public UnityEvent OnHit,Died;
     private void Start()
     {
         CurrentHealth = MaxHealth;
@@ -19,9 +27,14 @@ public class PlayerHealth : DamageAble
 
     public override void TakeDamage(float Damage,ElementType type)
     {
+        OnHit.Invoke();
         CurrentHealth -= Damage;
         GotHit = true;
         UiManager.instance.SetHealthValue(MaxHealth, CurrentHealth);
+        if(CurrentHealth <= 0)
+        {
+            Died.Invoke();
+        }
     }
 
     private void Update()

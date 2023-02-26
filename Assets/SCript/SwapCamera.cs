@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.Events;
+
 public enum CurrentnSwap
 {
     Player,
@@ -20,6 +21,7 @@ public class SwapCamera : MonoBehaviour
     public CurrentnSwap swap = CurrentnSwap.Player;
     [SerializeField] float SwapingCooldown;
     float CurrentCoolDown;
+
     private void Awake()
     {
         instance = this;
@@ -58,13 +60,14 @@ public class SwapCamera : MonoBehaviour
         swap = CurrentnSwap.Player;
         camLook.Follow = Player;
         SwapTP.Invoke();
+        UiManager.instance.SetBaseSkillImage(swap);
     }
 
     public void SwapToWeapon()
     {
         swap = CurrentnSwap.Weapon;
-        
         SwapTW.Invoke();
+        UiManager.instance.SetBaseSkillImage(swap);
     }
 }
 

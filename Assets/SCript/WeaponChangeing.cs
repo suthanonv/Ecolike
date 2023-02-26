@@ -21,7 +21,6 @@ public class WeaponChangeing : MonoBehaviour
     private void Awake()
     {
         instance = this;
-
     }
 
     private void Start()
@@ -130,6 +129,7 @@ public class WeaponChangeing : MonoBehaviour
         if (CurrentEM != ElementManage.instance.GetEmByRequire(InUse))
         {
             CurrentEM = ElementManage.instance.GetEmByRequire(InUse);
+            UiManager.instance.SetElementSkillSprite(SwapCamera.instance.swap, CurrentEM);
         }
     }
 
@@ -147,6 +147,7 @@ public class WeaponChangeing : MonoBehaviour
         Key2Value = 0;
         Key3Value = 0;
         shooting.instance.CurrentEM = CurrnetWeapon;
+        UiManager.instance.SetElementSkillSprite(SwapCamera.instance.swap, shooting.instance.CurrentEM);
         SetWeaponColor.instance.SetColor(CurrnetWeapon.Value);
         shooting.instance.MaxGate = CurrnetWeapon.MaxChargeTime;
         shooting.instance.CancelGage();
