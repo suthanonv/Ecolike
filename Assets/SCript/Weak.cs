@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Weak : Reaction
 {
-    public StatusEffect effect;
+     StatusEffect effect;
     [SerializeField] float ActiveTime;
     public override void SetReaction(GameObject Target)
     {

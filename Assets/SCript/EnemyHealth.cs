@@ -100,7 +100,7 @@ public class EnemyHealth : EnemyAttacking
         {
             Destroy(i.gameObject);
         }
-        Instantiate(CurrentRedcution.ReactionFream, EffectPoiont.transform);
+       Instantiate(CurrentRedcution.ReactionFream, EffectPoiont.transform);
     }
 
     public override void ReleaseReduction(Element ElemnetIncome)
@@ -109,7 +109,8 @@ public class EnemyHealth : EnemyAttacking
         {
             int Sum = CurrentRedcution.Value - ElemnetIncome.Value;
             ElmentReaction releaseted = GetReaction(Sum);
-            Instantiate(releaseted.ReactPrefab, this.transform.position, Quaternion.identity);
+        Reaction react = Instantiate(releaseted.ReactPrefab, this.transform.position, Quaternion.identity).GetComponent<Reaction>();
+            react.SetReaction(this.gameObject);
             EffectParent.SetActive(false);
             CurrentRedcution = null;
         }

@@ -2114,13 +2114,13 @@ MonoBehaviour:
   Point: {fileID: 1795801292}
   ShieldUptime: 2
   RotatePoint: {fileID: 572923691}
+  key: {fileID: 11400000, guid: 860e8123869e0e64ebca596871b41725, type: 2}
   OnShieldActive:
     m_PersistentCalls:
       m_Calls: []
   OnShieldOff:
     m_PersistentCalls:
       m_Calls: []
-  ShieldKey: 102
   ShieldCD: 3
 --- !u!114 &572923696
 MonoBehaviour:
@@ -2134,11 +2134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 568566b776ad8a74aaf8862ad4986da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootKey: 323
-  ForgeKey: 120
-  Em1Key: 113
-  Em2Key: 101
-  Em3Key: 114
+  key: {fileID: 11400000, guid: 860e8123869e0e64ebca596871b41725, type: 2}
   Key1Value: 0
   Key2Value: 0
   Key3Value: 0
@@ -4834,10 +4830,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fc19a4c007e7c6449ac4d4ab6607d280, type: 2}
   - {fileID: 11400000, guid: 71a207f81fb1f004c8b2c2766ab261fb, type: 2}
   InUse: []
-  Em1Key: 113
-  Em2Key: 101
-  Em3Key: 114
-  ForgeKey: 120
+  key: {fileID: 11400000, guid: 860e8123869e0e64ebca596871b41725, type: 2}
   SwapCd: 0.01
   CurrnetWeapon: {fileID: 0}
   WeaponPoint: {fileID: 1267668172}
@@ -4853,7 +4846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f3f4afcc2613a448f6e87051fc93b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DashKey: 102
+  key: {fileID: 11400000, guid: 860e8123869e0e64ebca596871b41725, type: 2}
   DashSpeed: 10
   DashCoolDown: 2
   DashLenght: 0.35
@@ -5945,54 +5938,6 @@ RectTransform:
   m_AnchoredPosition: {x: -122, y: 14}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1331697755
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1331697757}
-  - component: {fileID: 1331697756}
-  m_Layer: 0
-  m_Name: Explotion
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1331697756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1331697755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 872d10a77281bd247a063474215b8e4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ExplotionRange: 0
-  BaseDamageStat: {fileID: 11400000, guid: 25fe159113ed82f46a4a2b1bcc653bae, type: 2}
-  DamageMultiple: 250
-  type: 1
---- !u!4 &1331697757
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1331697755}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2163369, y: -0.107427344, z: -0.005565021}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1332046740
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,10 +7,7 @@ public class WeaponChangeing : MonoBehaviour
     public static WeaponChangeing instance;
     [SerializeField] List<Element> EmUse = new List<Element>();
   public  List<Element> InUse = new List<Element>();
-    public KeyCode Em1Key = KeyCode.Q;
-    public KeyCode Em2Key = KeyCode.E;
-    public KeyCode Em3Key = KeyCode.R;
-    public KeyCode ForgeKey = KeyCode.H;
+    [SerializeField] SetKeyBinding key;
     int Key1Value, Key2Value, Key3Value;
     float CurrentSwapCD;
     [SerializeField] float SwapCd;
@@ -37,7 +34,7 @@ public class WeaponChangeing : MonoBehaviour
     }
     void SetWeapon()
     {
-        if(Input.GetKeyDown(ForgeKey))
+        if(Input.GetKeyDown(key.ForgeKey))
         {
             if (CurrnetWeapon != CurrentEM)
             {
@@ -72,21 +69,21 @@ public class WeaponChangeing : MonoBehaviour
     {
         if (CurrentSwapCD <= 0)
         {
-            if (Input.GetKeyDown(Em1Key) && Key1Value == 0)
+            if (Input.GetKeyDown(key.Em1Key) && Key1Value == 0)
             {
                 Key1Value = 1;
                 InUse.Add(EmUse[0]);
                 UiManager.instance.SetElmenetOnFreame(InUse);
                 CurrentSwapCD = SwapCd;
             }
-            else if (Input.GetKeyDown(Em2Key) && Key2Value == 0)
+            else if (Input.GetKeyDown(key.Em2Key) && Key2Value == 0)
             {
                 Key2Value = 1;
                 InUse.Add(EmUse[1]);
                 UiManager.instance.SetElmenetOnFreame(InUse);
                 CurrentSwapCD = SwapCd;
             }
-            else if (Input.GetKeyDown(Em3Key) && Key3Value == 0)
+            else if (Input.GetKeyDown(key.Em3Key) && Key3Value == 0)
             {
                 Key3Value = 1;
                 InUse.Add(EmUse[2]);
@@ -95,7 +92,7 @@ public class WeaponChangeing : MonoBehaviour
             }
 
 
-            else if (Input.GetKeyDown(Em1Key) && Key1Value != 0)
+            else if (Input.GetKeyDown(key.Em1Key) && Key1Value != 0)
             {
                 Key1Value = 0;
 
@@ -104,7 +101,7 @@ public class WeaponChangeing : MonoBehaviour
                 CurrentSwapCD = SwapCd;
 
             }
-            else if (Input.GetKeyDown(Em2Key) && Key2Value != 0)
+            else if (Input.GetKeyDown(key.Em2Key) && Key2Value != 0)
             {
                 Key2Value = 0;
 
@@ -112,7 +109,7 @@ public class WeaponChangeing : MonoBehaviour
                 UiManager.instance.SetElmenetOnFreame(InUse);
                 CurrentSwapCD = SwapCd;
             }
-            else if (Input.GetKeyDown(Em3Key) && Key3Value != 0)
+            else if (Input.GetKeyDown(key.Em3Key) && Key3Value != 0)
             {
                 Key3Value = 0;
 

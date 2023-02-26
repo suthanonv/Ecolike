@@ -15,7 +15,7 @@ public class Burn : Reaction
     {
         effect = Target.GetComponent<StatusEffect>();
         enemy = Target.GetComponent<EnemyHealth>();
-        CalDamage = BaseDamage.GetBaseDamage(type).baseDamage;
+        CalDamage = BaseDamage.GetBaseDamage(type).CurrentBaseDamage;
         if (effect != null)
         {
             if(!effect.isBurn())

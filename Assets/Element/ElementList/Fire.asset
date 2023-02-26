@@ -34,11 +34,37 @@ MonoBehaviour:
   Force: 12.5
   isProjectile: 1
   BulletUpTime: 2.5
-  isUtimateProjectile: 0
-  UltiForce: 0
+  UtimateProjectile:
+    isProjectile: 0
+    Force: 0
+    projectileUptime: 0
   UtimateUpTime: 0
   MaxChargeTime: 5
+  MeleeSkillManaCost: 0
+  MeleeSkillImg: {fileID: 0}
+  MeleeSkillPrefab: {fileID: 0}
+  MeProjectileCheck:
+    isProjectile: 0
+    Force: 0
+    projectileUptime: 0
+  MeleeSkillCooldown: 0
+  CurrentMeleeSkillCooldown: 0
+  MagicSkillManaCost: 0
+  MagicSkilImg: {fileID: 0}
+  MagicSkillPrefab: {fileID: 0}
+  MgProjectileCheck:
+    isProjectile: 0
+    Force: 0
+    projectileUptime: 0
+  MagicSkillCooldown: 0
+  CurrentMagicSkillCooldown: 0
   possiblereact:
+  - Value: 1
+    ReactPrefab: {fileID: 5721746375327469467, guid: 822f2bdd5d3a8504eb666bea0bc0f404, type: 3}
   - Value: 0
-    ReactPrefab: {fileID: 8122778087974843794, guid: 6b13e3ac4b5fed4439912a4b564093ce, type: 3}
+    ReactPrefab: {fileID: 70050184679699276, guid: 91103c12e410fd641b3da240b95022f9, type: 3}
+  - Value: -1
+    ReactPrefab: {fileID: 7981640177344562238, guid: 8816888f95174044e8ecad1d21cea348, type: 3}
+  - Value: -2
+    ReactPrefab: {fileID: 6594596706753491899, guid: 5670a5d55d01e8d449f38e23eed82730, type: 3}
   ReactionFream: {fileID: 4151146119680809281, guid: fe44ce2bd9847fc49b1c785b34e4c623, type: 3}

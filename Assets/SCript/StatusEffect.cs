@@ -6,7 +6,7 @@ public class StatusEffect : MonoBehaviour
 {
     public virtual void OnFreeze()
     {
-
+      
     }
     public virtual bool isFreeze()
     {
@@ -86,7 +86,17 @@ public class StatusEffect : MonoBehaviour
 
     }
 
-    public virtual void OnDied()
-    { 
+    public virtual void OnSuck()
+    {
+
+    }
+    public virtual void SetSuckTransform(Transform suckedPoint)
+    {
+
+    }
+
+    public virtual void OffSuck()
+    {
+
     }
 }

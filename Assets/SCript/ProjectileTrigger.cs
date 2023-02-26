@@ -21,7 +21,7 @@ public class ProjectileTrigger : MonoBehaviour
         {
             collision.GetComponent<EnemyHealth>().SetOxidation();
             collision.GetComponent<EnemyHealth>().TakeDamage(Damage, type);
-       //     collision.GetComponent<EnemyHealth>().ReleaseReduction(ProjectilEm);
+          collision.GetComponent<EnemyHealth>().ReleaseReduction(ProjectilEm);
             SpawnEffect(collision.gameObject.transform);
         }
 

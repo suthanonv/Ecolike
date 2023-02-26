@@ -12,7 +12,7 @@ public class MeleeAttack : MonoBehaviour
     [SerializeField] Transform Point;
     [SerializeField] Light2D lights;
     Transform RotationPoint;
-    public KeyCode AttackKey = KeyCode.Mouse0;
+    [SerializeField] SetKeyBinding key;
     float ATKCD;
     float CurrentCD;
     private void Awake()
@@ -33,14 +33,14 @@ public class MeleeAttack : MonoBehaviour
         {
             Limit = WeaponElement.MeleeUltiChargeTime;
             MeleeChargeBar.instance.SetColor(WeaponElement);
-            if (Input.GetKey(AttackKey))
+            if (Input.GetKey(key.AttackKey))
             {
           
                 CurrentCharge = Mathf.Lerp(CurrentCharge, Limit + 1, Time.deltaTime);
                 PlayerWalk.instance.OnSlow(true);
                 MeleeChargeBar.instance.SetBar(Limit, CurrentCharge);
             }
-            if (Input.GetKeyUp(AttackKey))
+            if (Input.GetKeyUp(key.AttackKey))
             {
                 if (CurrentCharge < Limit)
                 {

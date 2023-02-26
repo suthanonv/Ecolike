@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class DashSkill : MonoBehaviour
 {
-    public KeyCode DashKey = KeyCode.F;
+    [SerializeField] SetKeyBinding key;
     [SerializeField] float DashSpeed;
     [SerializeField] float DashCoolDown = 1;
     float CurrentCoolDown;
@@ -23,7 +23,7 @@ public class DashSkill : MonoBehaviour
         if (CurrentCoolDown <= 0)
         {
             UiManager.instance.SetBaseSkillCooldown(CurrentCoolDown);
-            if (Input.GetKeyDown(DashKey))
+            if (Input.GetKeyDown(key.WeapoNSkillKey))
             {
                 Ondash.Invoke();
                 DashMechanic(DashPosition.position);

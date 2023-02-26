@@ -5,11 +5,7 @@ using UnityEngine.UI;
 public class shooting : MonoBehaviour
 {
     public static shooting instance;
-    public KeyCode shootKey = KeyCode.Mouse0;
-    public KeyCode ForgeKey = KeyCode.H;
-    public KeyCode Em1Key = KeyCode.Q;
-    public KeyCode Em2Key = KeyCode.E;
-    public KeyCode Em3Key = KeyCode.R;
+    [SerializeField] SetKeyBinding key;
 
  public   int Key1Value, Key2Value, Key3Value;
      int ManaRequire;
@@ -43,7 +39,7 @@ public class shooting : MonoBehaviour
     {
         SetElment();
         ShootingElement();
-        if (Input.GetKeyDown(ForgeKey))
+        if (Input.GetKeyDown(key.ForgeKey))
         {
             SetSum();
         }
@@ -61,14 +57,14 @@ public class shooting : MonoBehaviour
     {
         if (CurrentCD <= 0)
         {
-            if (Input.GetKey(shootKey))
+            if (Input.GetKey(key.AttackKey))
             {
                 PlayerWalk.instance.OnSlow(true);
                 CurrentGage = Mathf.Lerp(CurrentGage, MaxGate + 1, Time.deltaTime * CastingSpeed);
                 UltimateGage.value = CurrentGage;
                 Slider.SetActive(true);
             }
-            if(Input.GetKeyUp(shootKey))
+            if(Input.GetKeyUp(key.AttackKey))
             {
                 ReleaseElement();
                 PlayerWalk.instance.OnSlow(false);
@@ -147,21 +143,21 @@ public class shooting : MonoBehaviour
     {
         if (CurrentSwapCD <= 0)
         {
-            if (Input.GetKeyDown(Em1Key) && Key1Value == 0)
+            if (Input.GetKeyDown(key.Em1Key) && Key1Value == 0)
             {
                 Key1Value = 1;
                 InUse.Add(EmUse[0]);
                 UiManager.instance.SetElmenetOnFreame(InUse);
                 CurrentSwapCD = SwapCd;
             }
-          else  if (Input.GetKeyDown(Em2Key) && Key2Value == 0)
+          else  if (Input.GetKeyDown(key.Em2Key) && Key2Value == 0)
             {
                 Key2Value = 1;
                 InUse.Add(EmUse[1]);
                 UiManager.instance.SetElmenetOnFreame(InUse);
                 CurrentSwapCD = SwapCd;
             }
-            else if (Input.GetKeyDown(Em3Key) && Key3Value == 0)
+            else if (Input.GetKeyDown(key.Em3Key) && Key3Value == 0)
             {
                 Key3Value = 1;
                 InUse.Add(EmUse[2]);
@@ -170,7 +166,7 @@ public class shooting : MonoBehaviour
             }
 
 
-            else if (Input.GetKeyDown(Em1Key) && Key1Value != 0)
+            else if (Input.GetKeyDown(key.Em1Key) && Key1Value != 0)
             {
                 Key1Value = 0;
  
@@ -179,14 +175,14 @@ public class shooting : MonoBehaviour
                 CurrentSwapCD = SwapCd;
 
             }
-            else if (Input.GetKeyDown(Em2Key) && Key2Value != 0)
+            else if (Input.GetKeyDown(key.Em2Key) && Key2Value != 0)
             {
                 Key2Value = 0;
                 InUse.Remove(EmUse[1]);
                 UiManager.instance.SetElmenetOnFreame(InUse);
                 CurrentSwapCD = SwapCd;
             }
-            else if (Input.GetKeyDown(Em3Key) && Key3Value != 0)
+            else if (Input.GetKeyDown(key.Em3Key) && Key3Value != 0)
             {
                 Key3Value = 0;
                 InUse.Remove(EmUse[2]);

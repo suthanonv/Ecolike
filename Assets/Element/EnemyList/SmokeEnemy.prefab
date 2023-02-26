@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 1126609327609285040}
   - component: {fileID: 1126609327609285046}
   - component: {fileID: -1465973707187006837}
+  - component: {fileID: 1334727444704348882}
   m_Layer: 0
   m_Name: SmokeEnemy
   m_TagString: Enemy
@@ -413,12 +414,50 @@ MonoBehaviour:
   BaseResistance:
   - typeOfResis: 0
     ResistantAmount: 0
-  - typeOfResis: 0
+  - typeOfResis: 1
     ResistantAmount: 0
   - typeOfResis: 2
     ResistantAmount: 0
   - typeOfResis: 3
     ResistantAmount: 0
+--- !u!114 &1334727444704348882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126609327609285048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d256159b2b6d9e14cb82c005b144631e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnFreezed:
+    m_PersistentCalls:
+      m_Calls: []
+  OffFreezeed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStued:
+    m_PersistentCalls:
+      m_Calls: []
+  OffStuned:
+    m_PersistentCalls:
+      m_Calls: []
+  OnWeaked:
+    m_PersistentCalls:
+      m_Calls: []
+  OffWeaked:
+    m_PersistentCalls:
+      m_Calls: []
+  ReducedResis: 50
+  holder: {fileID: -1465973707187006837}
+  OnSukced:
+    m_PersistentCalls:
+      m_Calls: []
+  OffSucked:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2084407638609357824
 GameObject:
   m_ObjectHideFlags: 0

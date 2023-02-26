@@ -9,7 +9,7 @@ public class Shield : MonoBehaviour
     [SerializeField] Transform Point;
     [SerializeField] float ShieldUptime = 2;
     [SerializeField] Transform RotatePoint;
-
+    [SerializeField] SetKeyBinding key;
 
     private void Awake()
     {
@@ -17,7 +17,7 @@ public class Shield : MonoBehaviour
     }
     [SerializeField] UnityEvent OnShieldActive, OnShieldOff;
 
-    public KeyCode ShieldKey = KeyCode.F;
+
   [SerializeField]  float ShieldCD = 2;
     float CurrentCoolDown;
     float Animatedcooldown;
@@ -26,7 +26,7 @@ public class Shield : MonoBehaviour
         if (CurrentCoolDown <= 0)
         {
             UiManager.instance.SetBaseSkillCooldown(CurrentCoolDown);
-            if (Input.GetKey(ShieldKey) && CanShields)
+            if (Input.GetKey(key.WeapoNSkillKey) && CanShields)
             {
                 
                 GameObject CurrentaShield = Instantiate(Shields, Point.transform.position, RotatePoint.transform.rotation);

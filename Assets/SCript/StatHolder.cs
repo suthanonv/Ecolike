@@ -15,7 +15,7 @@ public class StatHolder : MonoBehaviour
 
         if(resistance <= 0)
         {
-            return 1 + (resistance / -10);
+            return 1 + (resistance * -1);
         }
         else if(resistance < 1)
         {
@@ -64,7 +64,7 @@ public struct DebuffStat
 }
 
 [System.Serializable]
-public struct Resistance
+public class Resistance
 {
     public ElementType typeOfResis;
     public float ResistantAmount;

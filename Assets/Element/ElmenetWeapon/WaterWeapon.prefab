@@ -774,7 +774,7 @@ MonoBehaviour:
   WeaponElement: {fileID: 11400000, guid: fc19a4c007e7c6449ac4d4ab6607d280, type: 2}
   Point: {fileID: 4612969347674452804}
   lights: {fileID: 4612969347580250761}
-  AttackKey: 323
+  key: {fileID: 11400000, guid: 860e8123869e0e64ebca596871b41725, type: 2}
 --- !u!95 &5561568165663329766
 Animator:
   serializedVersion: 4
