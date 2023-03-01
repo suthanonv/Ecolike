@@ -13,7 +13,7 @@ public class EnemyHealth : EnemyAttacking
     [SerializeField] Transform PointSpawning;
     [SerializeField] float TextUpTime;
     [SerializeField] GameObject FloatingPoint;
-
+    [SerializeField] float maxX, maxY, minX, minY;
 
     [Header("Reaction Ui")]
     [SerializeField] GameObject EffectParent;
@@ -24,6 +24,18 @@ public class EnemyHealth : EnemyAttacking
     
    public  delegate void Debuff();
     public Debuff DebuffHandle;
+
+    float RandX()
+    {
+        float randed = Random.Range(minX, minY);
+        return randed;
+    }
+
+    float RandY()
+    {
+        float randed = Random.Range(minY, maxY);
+        return randed;
+    }
 
     private void Start()
     {
@@ -68,7 +80,7 @@ public class EnemyHealth : EnemyAttacking
         }
         int showed = Mathf.RoundToInt(DamageShowing);
 
-        GameObject Point = Instantiate(FloatingPoint, PointSpawning.transform.position, Quaternion.identity) as GameObject;
+        GameObject Point = Instantiate(FloatingPoint,new Vector2(PointSpawning.transform.position.x + RandX(), PointSpawning.transform.position.y + RandY()), Quaternion.identity) as GameObject;
         Point.transform.GetChild(0).GetComponent<TextMeshPro>().text = showed.ToString();
         Destroy(Point, TextUpTime);
 
@@ -124,17 +136,7 @@ public class EnemyHealth : EnemyAttacking
         return CurrentRedcution.possiblereact.FirstOrDefault(i => i.Value == sum);
     }
 
-    public override void ONStatChange(bool changeToNormle)
-    {
-        if(changeToNormle)
-        {
-
-        }
-        else
-        {
-
-        }
-    }
+   
 
     
 

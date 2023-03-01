@@ -6,9 +6,16 @@ public class ProjectileTrigger : MonoBehaviour
 {
     [SerializeField] GameObject Effect;
     [SerializeField] float EffectUpTime;
-    [SerializeField] float Damage;
+    float Damage;
     [SerializeField] Element ProjectilEm;
     [SerializeField] ElementType type;
+    [SerializeField] ElementalBaseDamageStat stat;
+    [SerializeField] float DamageMultiple;
+
+    private void Start()
+    {
+        Damage = stat.GetBaseDamage(type).baseDamage * (DamageMultiple / 100);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<EnemyAttacking>() != null)

@@ -13,6 +13,7 @@ public class MeleeAttack : MonoBehaviour
     [SerializeField] Light2D lights;
     Transform RotationPoint;
     [SerializeField] SetKeyBinding key;
+    [SerializeField] GameObject SlashPoint;
     float ATKCD;
     float CurrentCD;
     private void Awake()
@@ -45,12 +46,13 @@ public class MeleeAttack : MonoBehaviour
                 if (CurrentCharge < Limit)
                 {
 
-                    Instantiate(WeaponElement.MeleePrefab, Point.transform.position, RotationPoint.transform.rotation);
-
+                    //                    Instantiate(WeaponElement.MeleePrefab, Point.transform.position, RotationPoint.transform.rotation);
+                    SlashPoint.SetActive(true);
+                    SlashPoint.GetComponent<MeleeSlash>().enabled = true;
                 }
                 else
                 {
-
+                    Invoke("SummonUtimate", 0.1f);
                 }
                 CurrentCD = ATKCD;
                 CurrentCharge = 0;
@@ -95,4 +97,17 @@ public class MeleeAttack : MonoBehaviour
         PlayerHealth.instance.OnHit.RemoveListener(CancelGate);
     }
 
+    void SummonUtimate()
+    {
+        if(WeaponElement.UtimateProjectile.isProjectile)
+        {
+            GameObject Uti = Instantiate(WeaponElement.MeleeUlti, Point.position, RotationPoint.rotation);
+            Rigidbody2D rb = Uti.GetComponent<Rigidbody2D>();
+            rb.AddForce(Point.up * WeaponElement.UtimateProjectile.Force, ForceMode2D.Impulse);
+        }
+        else
+        {
+            Instantiate(WeaponElement.MeleeUlti, Point.position,Quaternion.identity);
+        }
+    }
 }

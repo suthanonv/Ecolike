@@ -6,6 +6,7 @@ public class whirlpool : Reaction
 {
     [SerializeField] float ActiveTime;
     [SerializeField] float ActiveRange;
+    Transform suckpoint;
     private void Start()
     {
         Destroy(this.gameObject, ActiveTime);
@@ -13,6 +14,7 @@ public class whirlpool : Reaction
 
     public override void SetReaction(GameObject Target)
     {
+        suckpoint = this.transform;
     }
 
 
@@ -24,6 +26,7 @@ public class whirlpool : Reaction
         {
             if(Vector2.Distance(this.transform.position,i.transform.position) <= ActiveRange)
             {
+                i.SetSuckTransform(suckpoint);
                 i.OnSuck();
             }
         }

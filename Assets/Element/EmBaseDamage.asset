@@ -14,5 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllElementalBaseStat:
   - type: 0
-    baseDamage: 0
+    baseDamage: 50
+    CurrentBaseDamage: 0
+  - type: 1
+    baseDamage: 50
+    CurrentBaseDamage: 0
+  - type: 2
+    baseDamage: 50
+    CurrentBaseDamage: 0
+  - type: 3
+    baseDamage: 50
     CurrentBaseDamage: 0

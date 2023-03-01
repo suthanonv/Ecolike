@@ -40,6 +40,7 @@ public class SwapCamera : MonoBehaviour
             {
                 SwapToWeapon();
                 CurrentCoolDown = SwapingCooldown;
+                UiManager.instance.SwapCooldwon.fillAmount = 1;
             }
             else if (Input.GetKeyDown(swapKey) && swap == CurrentnSwap.Weapon)
             {
@@ -50,6 +51,7 @@ public class SwapCamera : MonoBehaviour
         }
         else
         {
+            UiManager.instance.SwapCooldwon.fillAmount -= 1/SwapingCooldown * Time.deltaTime;
             CurrentCoolDown -= Time.deltaTime;
         }
     }

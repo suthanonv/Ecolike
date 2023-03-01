@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveTime: 8
-  ActiveRange: 15
+  ActiveRange: 5

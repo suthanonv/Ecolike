@@ -19,6 +19,7 @@ public class SmokeStatusEffect : StatusEffect
    
     [Header("Suck")]
     [SerializeField] UnityEvent OnSukced,OffSucked;
+    [SerializeField] Onsucking suckedSciprt;
     public override void OnFreeze()
     {
         isEffectFreeze = true;
@@ -116,15 +117,16 @@ public class SmokeStatusEffect : StatusEffect
 
     public override void OnSuck()
     {
-
+        OnSukced.Invoke();
     }
     public override void SetSuckTransform(Transform suckedPoint)
     {
-
+        suckedSciprt.SetTransform(suckedPoint);
     }
 
     public override void OffSuck()
     {
-
+        OffSucked.Invoke();
+        this.GetComponent<Knockback>().PlayFeedBack(this.gameObject);
     }
 }

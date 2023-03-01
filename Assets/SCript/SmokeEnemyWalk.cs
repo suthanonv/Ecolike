@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-public class SmokeEnemyWalk : EnemyAttacking
+public class SmokeEnemyWalk : EnemyWalk
 {
     public float Range;
 
@@ -45,9 +45,11 @@ public class SmokeEnemyWalk : EnemyAttacking
     }
     void moveCharacter(Vector2 direction)
     {
-     
+        if (!isstoped)
+        {
             rb.MovePosition((Vector2)transform.position + (direction * Time.deltaTime * CurrentSpeed));
             SkillAcive.Invoke();
+        }
         }
 
     public void BuffSpeed(bool Buff)
@@ -61,17 +63,14 @@ public class SmokeEnemyWalk : EnemyAttacking
             CurrentSpeed = MoveSpeed;
         }
     }
-
-
-    public override void ONStatChange(bool changeToNormle)
+    bool isstoped = false;
+    public void  stopWalk(bool stop)
     {
-       if(changeToNormle)
-        {
+        isstoped = stop;
+    }
 
-        }
-       else
-        {
-
-        }
+    public override void provoke(Transform provoke)
+    {
+        player = provoke.transform;
     }
 }

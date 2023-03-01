@@ -25,6 +25,7 @@ MonoBehaviour:
   UltimateManaCost: 0
   ElementPrefab: {fileID: 3277637923254978713, guid: 14fa5212cd3bbf54ea88e84844909789, type: 3}
   UltimatePrefab: {fileID: 0}
+  MeleeWeaponNum: 3
   WeaponPrefab: {fileID: 286927855172861771, guid: feb27ed2fc852b24381c17cb8f82cd29, type: 3}
   MeleePrefab: {fileID: 519219782060700063, guid: 3e5a792762c06e2439125150c5b30c40, type: 3}
   MeleeUlti: {fileID: 0}

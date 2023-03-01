@@ -17,9 +17,10 @@ public class Element : ScriptableObject
     public int UltimateManaCost;
     [Header("Prefab")]
     public GameObject ElementPrefab;
-    public GameObject UltimatePrefab;
+ 
 
     [Header("Melee Weapon")]
+    public int MeleeWeaponNum;
     public GameObject WeaponPrefab;
     public GameObject MeleePrefab;
     public GameObject MeleeUlti;
@@ -36,7 +37,7 @@ public class Element : ScriptableObject
     [Header("Ultimate Stat")]
     public projectileRequimrent UtimateProjectile;
     public float UtimateUpTime;
-   public float MaxChargeTime;
+    public float MaxChargeTime;
 
     [Header("Melee Skill")]
     public int MeleeSkillManaCost;
@@ -46,7 +47,6 @@ public class Element : ScriptableObject
     public float MeleeSkillCooldown;
     public float CurrentMeleeSkillCooldown;
     
-   
     [Header("Magic Skill")]
     public int MagicSkillManaCost;
     public Sprite MagicSkilImg;

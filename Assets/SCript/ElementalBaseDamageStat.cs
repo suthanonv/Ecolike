@@ -31,7 +31,7 @@ public class ElementalBaseDamageStat : ScriptableObject
 
 
 [System.Serializable]
-public struct ElementBaseStat
+public class ElementBaseStat
 {
     public ElementType type;
     public float baseDamage;

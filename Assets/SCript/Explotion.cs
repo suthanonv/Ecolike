@@ -6,6 +6,7 @@ public class Explotion : Reaction
 {
     [SerializeField] float ExplotionRange;
     [SerializeField] ElementalBaseDamageStat BaseDamageStat;
+   
     [SerializeField] float DamageMultiple;
     [SerializeField] ElementType type;
 
@@ -19,14 +20,11 @@ public class Explotion : Reaction
             {
                 float Damage = BaseDamageStat.GetBaseDamage(type).CurrentBaseDamage * (DamageMultiple / 100);
                 i.TakeDamage(Damage, type);
+                i.GetComponent<Knockback>().PlayFeedBack(this.gameObject);
             }
         }
     }
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

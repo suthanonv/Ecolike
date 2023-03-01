@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackKey: 323
   WeapoNSkillKey: 102
+  ElementSKillKey: 103
   Em1Key: 113
   Em2Key: 101
   Em3Key: 114
-  ForgeKey: 120
+  ForgeKey: 324
   SwapKey: 122

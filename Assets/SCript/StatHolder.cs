@@ -29,6 +29,11 @@ public class StatHolder : MonoBehaviour
         }
 
     }
+
+    public Resistance GetResistanceBase(ElementType GetType)
+    {
+       return BaseResistance.FirstOrDefault(i => i.typeOfResis == GetType);
+    }
 }
 
 [System.Serializable]

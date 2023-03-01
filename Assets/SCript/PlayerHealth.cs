@@ -37,6 +37,16 @@ public class PlayerHealth : DamageAble
         }
     }
 
+    public void Health(float HealthAMount)
+    {
+        CurrentHealth += HealthAMount;
+        if(CurrentHealth > MaxHealth)
+        {
+            CurrentHealth = MaxHealth;
+        }
+        UiManager.instance.SetHealthValue(MaxHealth, CurrentHealth);
+    }
+
     private void Update()
     {
         if(GotHit)

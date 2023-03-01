@@ -127,9 +127,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestoryTime: 0.2
-  Damage: 100
   SlashEm: {fileID: 11400000, guid: fc19a4c007e7c6449ac4d4ab6607d280, type: 2}
   type: 2
+  stat: {fileID: 11400000, guid: 25fe159113ed82f46a4a2b1bcc653bae, type: 2}
+  DmageMultiple: 100
 --- !u!95 &7140118377643648488
 Animator:
   serializedVersion: 4

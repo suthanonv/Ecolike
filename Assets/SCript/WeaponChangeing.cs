@@ -14,7 +14,7 @@ public class WeaponChangeing : MonoBehaviour
     Element CurrentEM;
      public  Element CurrnetWeapon;
     [SerializeField] Transform WeaponPoint;
-
+    int lastIndex = 0;
     private void Awake()
     {
         instance = this;
@@ -54,12 +54,14 @@ public class WeaponChangeing : MonoBehaviour
     {
         InUse = new List<Element>();
         UiManager.instance.SetElmenetOnFreame(InUse);
-
-        foreach (Transform i in WeaponPoint)
+        WeaponPoint.transform.GetChild(lastIndex).gameObject.SetActive(false);
+        WeaponPoint.transform.GetChild(CurrnetWeapon.MeleeWeaponNum).gameObject.SetActive(true);
+        lastIndex = CurrnetWeapon.MeleeWeaponNum;
+       /* foreach (Transform i in WeaponPoint)
         {
             Destroy(i.gameObject);
         }
-        Instantiate(CurrnetWeapon.WeaponPrefab, WeaponPoint.transform);
+        Instantiate(CurrnetWeapon.WeaponPrefab, WeaponPoint.transform); */
     }
 
 

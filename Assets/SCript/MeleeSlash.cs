@@ -6,16 +6,22 @@ public class MeleeSlash : MonoBehaviour
 {
     RotationToMouse rotate;
     [SerializeField] float DestoryTime;
-    [SerializeField] float Damage;
+    float Damage;
     [SerializeField] Element SlashEm;
     [SerializeField] ElementType type;
-    private void Start()
+    [SerializeField] ElementalBaseDamageStat stat;
+    [SerializeField] float DmageMultiple = 100;
+    [SerializeField] GameObject Parent;
+   
+
+    private void OnEnable()
     {
+        Damage = stat.GetBaseDamage(type).baseDamage * (DmageMultiple / 100);
+        Parent.GetComponent<SpriteRenderer>().enabled = false;
         PlayerWalk.instance.StopWalk(true);
         rotate = GameObject.FindWithTag("Weapon").GetComponent<RotationToMouse>();
         rotate.enabled = false;
-        MeleeAttack.instace.DisalbespirteAndLight(true);
-        Destroy(this.gameObject, DestoryTime);
+        StartCoroutine(SetActiveSelf(DestoryTime));
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -31,20 +37,27 @@ public class MeleeSlash : MonoBehaviour
 
         if (other.gameObject.GetComponent<EnemyHealth>() != null)
         {
-            other.GetComponent<EnemyHealth>().TakeDamage(Damage, type);
             other.GetComponent<EnemyHealth>().EmAttackType(SlashEm);
+            other.GetComponent<EnemyHealth>().TakeDamage(Damage, type);
             other.GetComponent<EnemyHealth>().SetReduction(SlashEm);
         } 
 
        
     }
-
-    private void OnDestroy()
+    
+    private void OnDisable()
     {
-        MeleeAttack.instace.DisalbespirteAndLight(false);
+        Parent.GetComponent<SpriteRenderer>().enabled = true;
         PlayerWalk.instance.StopWalk(false);
         rotate.enabled = true;
 
     }
 
+    IEnumerator SetActiveSelf(float Timeing)
+    {
+        yield return new WaitForSeconds(Timeing);
+        Parent.GetComponent<SpriteRenderer>().enabled = true;
+        this.enabled = false;
+        this.gameObject.SetActive(false);
+    }
 }

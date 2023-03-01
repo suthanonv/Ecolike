@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77dcd3cb90842484d800e78da2b52034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageMulitple: 20
-  type: 0
+  DamageMulitple: 50
+  type1: 1
+  type2: 0
+  MultipleEm1: 30
+  MultipleEm2: 10
+  stat: {fileID: 11400000, guid: 25fe159113ed82f46a4a2b1bcc653bae, type: 2}
   ActiveTime: 0.5

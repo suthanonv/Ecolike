@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3201d756418cfc9479a4cd7bcfd0a8ba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,9 +103,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Effect: {fileID: 8359514960164119545, guid: 2c786c5707ffb0143b8585bdce16327d, type: 3}
   EffectUpTime: 0.2
-  Damage: 20
   ProjectilEm: {fileID: 11400000, guid: c99502f60f6273847872734d5ccb9146, type: 2}
   type: 0
+  stat: {fileID: 11400000, guid: 25fe159113ed82f46a4a2b1bcc653bae, type: 2}
+  DamageMultiple: 100
 --- !u!114 &8919112944844032807
 MonoBehaviour:
   m_ObjectHideFlags: 0

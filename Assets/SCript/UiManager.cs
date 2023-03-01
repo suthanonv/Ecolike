@@ -6,6 +6,8 @@ using TMPro;
 public class UiManager : MonoBehaviour
 {
     public static UiManager instance;
+    [SerializeField] SetKeyBinding keybinding;
+    
     private void Awake()
     {
         instance = this;
@@ -20,6 +22,10 @@ public class UiManager : MonoBehaviour
     [SerializeField] Slider AnimManaSlider;
     int LastMana;
 
+    [Header("Swap Key")]
+    [SerializeField] Image SwapImage;
+    [SerializeField] public Image SwapCooldwon;
+
 
     [Header("Element Fream")]
     [SerializeField] Transform EmPickUPFreame;
@@ -29,7 +35,7 @@ public class UiManager : MonoBehaviour
     [Header("WeaponBase Skill")]
     [SerializeField] Image BaseCharaterSkillFreme;
     [SerializeField] Image CooldownImage;
-
+    
     [Header("Key binding Fream")]
     [SerializeField] GameObject ClosePhase;
     [SerializeField] GameObject OpenPhase;
@@ -37,6 +43,8 @@ public class UiManager : MonoBehaviour
     [Header("Weapon Base Skill Freame")]
     [SerializeField] Image SkillImage;
     [SerializeField] Sprite DashSprite;
+    [SerializeField] Sprite SwapToWeapon;
+    [SerializeField] Sprite SwapToMagic;
     [SerializeField] Sprite ShieldSprite;
     public  Image BaseWeaponCooldown;
     [SerializeField] TextMeshProUGUI coldowntext;
@@ -45,6 +53,22 @@ public class UiManager : MonoBehaviour
     [SerializeField] Image ElementSkillImage;
     public Image ElementnCooldown;
     [SerializeField] TextMeshProUGUI Elementcoldowntext;
+
+    [Header("KeyBind Text")]
+    [SerializeField] TextMeshProUGUI KeySwapText;
+    [SerializeField] TextMeshProUGUI KeyWeaponSkillText;
+    [SerializeField] TextMeshProUGUI KeyElemenetSKillText;
+    [SerializeField] TextMeshProUGUI KeyElement1Text;
+    [SerializeField] TextMeshProUGUI KeyElement2Text;
+    [SerializeField] TextMeshProUGUI KeyElement3Text;
+    [SerializeField] TextMeshProUGUI KeyForgeText;
+
+    private void Start()
+    {
+        SetKeyText();
+    }
+
+
     public void SetHealthValue(float MaxHealh, float CurrentHealth)
     {
         HealtSlider.maxValue = MaxHealh;
@@ -215,6 +239,18 @@ public class UiManager : MonoBehaviour
         {
          //   ElementSkillImage.sprite = currnetElement.MagicSkilImg;
         }
+    }
+    
+
+    public void SetKeyText()
+    {
+        KeySwapText.text = keybinding.SwapKey.ToString();
+     KeyWeaponSkillText.text = keybinding.WeapoNSkillKey.ToString();
+       KeyElemenetSKillText.text = keybinding.ElementSKillKey.ToString();
+         KeyElement1Text.text = keybinding.Em1Key.ToString();
+        KeyElement2Text.text = keybinding.Em2Key.ToString();
+      KeyElement3Text.text = keybinding.Em3Key.ToString();
+       KeyForgeText.text = keybinding.ForgeKey.ToString();
     }
 }
 
