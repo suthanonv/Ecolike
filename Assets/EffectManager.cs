@@ -15,6 +15,9 @@ public class EffectManager : MonoBehaviour
 
     [Header("Excalibur")]
     [SerializeField] public UnityEvent OnExcalibur, OffExCalibur;
+
+    [Header("BuffBody")]
+    [SerializeField] public UnityEvent OnBodyBuffed, OffBodyBuff;
     
     private void Awake()
     {
@@ -34,6 +37,19 @@ public class EffectManager : MonoBehaviour
             effectPrefab[num].SetActive(true);
             OnUtimate.Invoke();
         }
+    }
+
+    public void OnBodyBuff(stateOnOff state)
+    {
+        if(state == stateOnOff.off)
+        {
+            OffBodyBuff.Invoke();
+        }
+        else
+        {
+            OnBodyBuffed.Invoke();
+        }
+
     }
 
 
