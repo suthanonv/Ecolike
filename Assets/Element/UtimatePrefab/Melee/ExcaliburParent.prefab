@@ -220,5 +220,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb0b562ed42f89468e40d5e8cf3be44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirstClip: {fileID: 8300000, guid: 57ccb5af58af80d42a2dc1a8c1ad7a6d, type: 3}
+  FirstClip: {fileID: 8300000, guid: 90aa91b0c38cd8d4eb6a069eb21552a1, type: 3}
   SecondClip: {fileID: 0}

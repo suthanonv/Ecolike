@@ -6,6 +6,7 @@ public class Stune : Reaction
 {
     StatusEffect effect;
     [SerializeField] float Time;
+    [SerializeField] GameObject self;
     public override void SetReaction(GameObject Target)
     {
         effect = Target.GetComponent<StatusEffect>();
@@ -13,7 +14,7 @@ public class Stune : Reaction
         {
             if (effect.isStun())
             {
-                Destroy(this.gameObject);
+                Destroy(self);
             }
             else
             {
@@ -23,7 +24,7 @@ public class Stune : Reaction
         }
         else
         {
-            Destroy(this.gameObject);
+            Destroy(self);
         }
     }
 
@@ -37,6 +38,6 @@ public class Stune : Reaction
             effect.OffStun();
         }
 
-        Destroy(this.gameObject);
+        Destroy(self);
     }
 }

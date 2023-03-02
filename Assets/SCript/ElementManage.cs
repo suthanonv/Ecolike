@@ -32,8 +32,17 @@ public class ElementManage : MonoBehaviour
 
     public void ReleaseUtimate(Element CurrentEM)
     {
-
-    }
+        if(CurrentEM.UtimateProjectile.isProjectile)
+        {
+            GameObject elm = Instantiate(CurrentEM.MagicUtimatePrefab, Point.transform.position, RotatePoint.transform.rotation);
+            Rigidbody2D rb = elm.GetComponent<Rigidbody2D>();
+            rb.AddForce(Point.up * CurrentEM.UtimateProjectile.Force, ForceMode2D.Impulse);
+        }
+        else
+        {
+            Instantiate(CurrentEM.MagicUtimatePrefab, Point.transform.position,Quaternion.identity);
+        }
+    } 
 
 
  public   Element GetEm(int value)

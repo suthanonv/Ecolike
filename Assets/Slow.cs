@@ -6,6 +6,7 @@ public class Slow : Reaction
 {
      StatusEffect effect;
     [SerializeField] float Time;
+    [SerializeField] GameObject self;
     public override void SetReaction(GameObject Target)
     {
         effect = Target.GetComponent<StatusEffect>();
@@ -13,23 +14,23 @@ public class Slow : Reaction
         {
             if(effect.isSlow())
             {
-                Destroy(this.gameObject);
+                Destroy(self);
             }
             else
             {
                 effect.OnSlow();
-                Invoke("destroySelf", Time);
+                Invoke("Des", Time);
             }
         }
         else
         {
-            Destroy(this.gameObject);
+            Destroy(self);
         }
     }
 
 
 
-    void destroySelf()
+    void Des()
     {
      
         if (effect != null)
@@ -37,7 +38,7 @@ public class Slow : Reaction
             effect.OffSlow();
         }
 
-        Destroy(this.gameObject);
+        Destroy(self);
     }
   
 }

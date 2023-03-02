@@ -11,7 +11,7 @@ public class AoeReduction : MonoBehaviour
     [SerializeField] Element incomeEm;
     [SerializeField] float Delay;
 
-    private void Start()
+    private void OnEnable()
     {
         Invoke("AoeRedcut", Delay);
     }
@@ -23,12 +23,13 @@ public class AoeReduction : MonoBehaviour
         {
             if (Vector2.Distance(i.transform.position, this.transform.position) <= ExplotionRange)
             {
-                float Damage = BaseDamageStat.GetBaseDamage(type).CurrentBaseDamage * (DamageMultiple / 100);
+                float Damage = BaseDamageStat.GetBaseDamage(type).baseDamage * (DamageMultiple / 100);
                 i.SetOxidation();
                 i.TakeDamage(Damage, type);
                 i.ReleaseReduction(incomeEm);
                 i.GetComponent<Knockback>().PlayFeedBack(this.gameObject);
             }
         }
+        this.enabled = false;
     }
 }
