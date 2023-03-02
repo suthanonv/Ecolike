@@ -57,10 +57,11 @@ public class shooting : MonoBehaviour
     {
         if (CurrentCD <= 0)
         {
+                UltimateGage.maxValue = MaxGate;
             if (Input.GetKey(key.AttackKey))
             {
                 PlayerWalk.instance.OnSlow(true);
-                CurrentGage = Mathf.Lerp(CurrentGage, MaxGate + 1, Time.deltaTime * CastingSpeed);
+                CurrentGage  += Time.deltaTime;
                 UltimateGage.value = CurrentGage;
                 Slider.SetActive(true);
             }
@@ -105,10 +106,12 @@ public class shooting : MonoBehaviour
             if (CurrentGage < MaxGate)
             {
                 ElementManage.instance.ReleaseEM(CurrentEM);
-                CurrentCD = CurrentEM.AttackCD;
+                Debug.Log(CurrentGage.ToString() + ":" + MaxGate.ToString());
+
             }
             else
             {
+                Debug.Log("Release Utimate");
                 ElementManage.instance.ReleaseUtimate(CurrentEM);
             }
         }

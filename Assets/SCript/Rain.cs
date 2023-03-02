@@ -8,7 +8,7 @@ public class Rain : MonoBehaviour
     
     [SerializeField] float ActiveTime;
     [SerializeField] ElementType type;
-   
+    [SerializeField] Element Em;
     [SerializeField] float ActiveRange;
     [SerializeField] float DecreaseAmount;
     [SerializeField] float DamageIncrease;
@@ -39,10 +39,16 @@ public class Rain : MonoBehaviour
             inRange = true;
             CurrentPlus = stat.GetBaseDamage(type).baseDamage *(DamageIncrease / 100);
             stat.GetBaseDamage(type).baseDamage += CurrentPlus;
-             
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+     if(collision.gameObject.GetComponent<EnemyHealth>() != null)
+        {
+            collision.gameObject.GetComponent<EnemyHealth>().ReleaseReduction(Em);
+        }
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<StatHolder>() != null)
@@ -51,6 +57,7 @@ public class Rain : MonoBehaviour
         }
         if(collision.gameObject.tag == "Player")
         {
+            inRange = false;
             stat.GetBaseDamage(type).baseDamage -= CurrentPlus;
         }
     }

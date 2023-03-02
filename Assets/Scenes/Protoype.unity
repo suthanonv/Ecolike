@@ -6729,6 +6729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirstClip: {fileID: 8300000, guid: 96341ab323a808c42ae71ab68969cf52, type: 3}
   SecondClip: {fileID: 8300000, guid: e6a233255f351cd4da276aacf0964c83, type: 3}
+  Self: {fileID: 0}
 --- !u!1 &1251610711
 GameObject:
   m_ObjectHideFlags: 0

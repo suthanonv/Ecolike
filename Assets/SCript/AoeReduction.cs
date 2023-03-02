@@ -18,6 +18,7 @@ public class AoeReduction : MonoBehaviour
 
     public void AoeRedcut()
     {
+        Debug.Log("Start");
         EnemyHealth[] enemy = GameObject.FindObjectsOfType<EnemyHealth>();
         foreach (EnemyHealth i in enemy)
         {

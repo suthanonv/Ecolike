@@ -31,4 +31,9 @@ public class AnimationSound : MonoBehaviour
     {
         SoundManageMent.instance.StopUtimateSound();
     }
+    [SerializeField] GameObject Self;
+    public void DestroySelf()
+    {
+        Destroy(Self);
+    }
 }

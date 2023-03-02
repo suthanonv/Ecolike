@@ -37,7 +37,7 @@ public class MeleeAttack : MonoBehaviour
             if (Input.GetKey(key.AttackKey))
             {
           
-                CurrentCharge = Mathf.Lerp(CurrentCharge, Limit + 1, Time.deltaTime);
+                CurrentCharge += Time.deltaTime;
                 PlayerWalk.instance.OnSlow(true);
                 MeleeChargeBar.instance.SetBar(Limit, CurrentCharge);
             }
