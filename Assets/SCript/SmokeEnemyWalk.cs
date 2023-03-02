@@ -63,6 +63,20 @@ public class SmokeEnemyWalk : EnemyWalk
             CurrentSpeed = MoveSpeed;
         }
     }
+    float normleMoveSpeed;
+    public void OnSlow(bool isslow)
+    {
+        if(isslow)
+        {
+            normleMoveSpeed = MoveSpeed;
+            MoveSpeed *= 0.5f;
+        }
+        else
+        {
+            MoveSpeed = normleMoveSpeed;
+        }
+    }
+
     bool isstoped = false;
     public void  stopWalk(bool stop)
     {

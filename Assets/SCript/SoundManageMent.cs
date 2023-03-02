@@ -11,7 +11,7 @@ public class SoundManageMent : MonoBehaviour
         instance = this;
     }
 
-    [SerializeField] AudioSource source,bsource,csource;
+    [SerializeField] AudioSource source,bsource,csource,UtimateSource;
     [SerializeField] AudioClip BoxBroken,JarBroken;
 
 
@@ -33,5 +33,14 @@ public class SoundManageMent : MonoBehaviour
         csource.Play();
     }
 
+    public void PlayUtimateSound(AudioClip clip)
+    {
+        UtimateSource.clip = clip;
+        UtimateSource.Play();
+    }
 
+    public void StopUtimateSound()
+    {
+        UtimateSource.Stop();
+    }
 }

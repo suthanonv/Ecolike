@@ -23,6 +23,7 @@ public class DashSkill : MonoBehaviour
         if (CurrentCoolDown <= 0)
         {
             UiManager.instance.SetBaseSkillCooldown(CurrentCoolDown);
+            if (canDashed) { 
             if (Input.GetKeyDown(key.WeapoNSkillKey))
             {
                 Ondash.Invoke();
@@ -31,6 +32,7 @@ public class DashSkill : MonoBehaviour
                 AnimtaedCooldown = DashCoolDown;
                 UiManager.instance.BaseWeaponCooldown.fillAmount = 1;
             }
+                 }
         }
         else
         {
@@ -40,8 +42,11 @@ public class DashSkill : MonoBehaviour
         }
     }
 
-
-
+    bool canDashed = true;
+    public void CanDash(bool check)
+    {
+        canDashed = check;
+    }
 
 
     Vector2 dashment;
@@ -69,5 +74,7 @@ public class DashSkill : MonoBehaviour
             UiManager.instance.SetBaseSkillCooldown(CurrentCoolDown);
         }
     }
+
+
 
 }

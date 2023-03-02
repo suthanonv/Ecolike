@@ -41,6 +41,7 @@ public class Excalibur : MonoBehaviour
             other.GetComponent<EnemyHealth>().EmAttackType(element);
             other.GetComponent<EnemyHealth>().TakeDamage(Damage, type);
             other.GetComponent<EnemyHealth>().SetReduction(element);
+            RandBurn(other.gameObject);
         }
     }
 
@@ -49,7 +50,7 @@ public class Excalibur : MonoBehaviour
         float Randdom = Random.Range(1, 101);
         if(Randdom <= chanceToBurn)
         {
-            Burn burned = Instantiate(BurnEffect);
+            Burn burned = Instantiate(BurnEffect,this.transform.position,Quaternion.identity);
             burned.SetReaction(i);
         }
     }

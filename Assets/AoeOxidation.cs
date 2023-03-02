@@ -10,9 +10,10 @@ public class AoeOxidation : MonoBehaviour
     [SerializeField] ElementType type;
     [SerializeField] Element incomeEm;
     [SerializeField] float Delay;
-    private void Start()
+
+    private void OnEnable()
     {
-        Invoke("AoeStart", Delay);        
+        Invoke("AoeStart", Delay);
     }
 
     public  void AoeStart()
@@ -29,5 +30,6 @@ public class AoeOxidation : MonoBehaviour
                 i.GetComponent<Knockback>().PlayFeedBack(this.gameObject);
             }
         }
+        this.enabled = false;
     }
 }

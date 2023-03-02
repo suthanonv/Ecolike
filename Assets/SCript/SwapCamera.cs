@@ -14,7 +14,6 @@ public class SwapCamera : MonoBehaviour
 {
     public static SwapCamera instance;
 
-    [SerializeField] CinemachineVirtualCamera camLook;
     [SerializeField] Transform Player;
     [SerializeField] KeyCode swapKey = KeyCode.Z;
     [SerializeField] UnityEvent SwapTP, SwapTW;
@@ -34,6 +33,7 @@ public class SwapCamera : MonoBehaviour
 
     private void Update()
     {
+        this.transform.position = Player.transform.position;
         if (CurrentCoolDown <= 0)
         {
             if (Input.GetKeyDown(swapKey) && swap == CurrentnSwap.Player)
@@ -60,7 +60,6 @@ public class SwapCamera : MonoBehaviour
     public void SwapToPlayer()
     {
         swap = CurrentnSwap.Player;
-        camLook.Follow = Player;
         SwapTP.Invoke();
         UiManager.instance.SetBaseSkillImage(swap);
     }

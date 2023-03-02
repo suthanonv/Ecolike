@@ -103,6 +103,11 @@ public class PlayerWalk : MonoBehaviour
 
     }
 
+    private void OnDisable()
+    {
+        animator.SetFloat("Speed", 0);
+    }
+
     public void FreezeingSelf(bool isfreeze)
     {
         if (isfreeze)

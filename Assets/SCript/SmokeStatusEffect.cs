@@ -20,6 +20,9 @@ public class SmokeStatusEffect : StatusEffect
     [Header("Suck")]
     [SerializeField] UnityEvent OnSukced,OffSucked;
     [SerializeField] Onsucking suckedSciprt;
+
+    [Header("Slow")]
+    [SerializeField] UnityEvent Onslowed, OffSlowed;
     public override void OnFreeze()
     {
         isEffectFreeze = true;
@@ -50,11 +53,13 @@ public class SmokeStatusEffect : StatusEffect
     public override void OffStun()
     {
         isEffectStune = false;
+        OffStuned.Invoke();
     }
 
     public override void OnSlow()
     {
         isEffectSlow = true;
+        Onslowed.Invoke();
     }
     public override bool isSlow()
     {
@@ -63,6 +68,8 @@ public class SmokeStatusEffect : StatusEffect
     public override void OffSlow()
     {
         isEffectSlow = false;
+        OffSlowed.Invoke();
+
     }
 
     public override void OnBurn()
