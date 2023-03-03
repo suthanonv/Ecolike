@@ -6,9 +6,11 @@ public class GolemWalk : MonoBehaviour
 {
     Transform WalkToTransform;
     [SerializeField] float Speed;
+    [SerializeField] Animator anim;
+    [SerializeField] GolemAttack attack;
     Rigidbody2D rb;
     Vector2 movement;
-    [SerializeField] float provokeRange;
+    
     void Start()
     {
         WalkToTransform = GetPoint();
@@ -21,12 +23,15 @@ public class GolemWalk : MonoBehaviour
     {
         if(WalkToTransform != null)
         {
-           
-            Vector3 direction = WalkToTransform.position - transform.position;
+            attack.SetTransform(WalkToTransform);
+             Vector3 direction = WalkToTransform.position - transform.position;
 
             direction.Normalize();
-           
+            
             movement = direction;
+            anim.SetFloat("Horizontal", movement.x);
+            anim.SetFloat("Vertical", movement.y);
+            anim.SetFloat("speed", movement.sqrMagnitude);
         }
         else
         {
@@ -41,6 +46,11 @@ public class GolemWalk : MonoBehaviour
         {
             rb.MovePosition((Vector2)transform.position + (movement * Time.deltaTime * Speed));
         }
+       else
+        {
+            anim.SetFloat("speed", 0);
+        }
+      
     }
 
     Transform GetPoint()
@@ -59,5 +69,10 @@ public class GolemWalk : MonoBehaviour
         return ShortTransform;
     }
 
-    
+    private void OnDisable()
+    {
+        anim.SetFloat("speed", 0);
+    }
+
+
 }

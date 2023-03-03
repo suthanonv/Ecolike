@@ -106,7 +106,6 @@ public class shooting : MonoBehaviour
             if (CurrentGage < MaxGate)
             {
                 ElementManage.instance.ReleaseEM(CurrentEM);
-                Debug.Log(CurrentGage.ToString() + ":" + MaxGate.ToString());
 
             }
             else

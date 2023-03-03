@@ -8,7 +8,9 @@ public class EnemyDamage : EnemyAttacking
     [SerializeField] float Damage = 10f;
     [SerializeField] StatHolder Stat;
     [SerializeField] ElementType type;
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -17,10 +19,7 @@ public class EnemyDamage : EnemyAttacking
             this.gameObject.GetComponent<Knockback>().PlayFeedBack(collision.gameObject);
             collision.gameObject.GetComponent<DamageAble>().TakeDamage(Damage, type);
         }
-        if(collision.gameObject.CompareTag("Enemy"))
-        {
-            collision.gameObject.GetComponent<Knockback>().NormleFeedBack(this.gameObject);
-        }
+      
     }
 
     public override void ONStatChange(bool ChangeToNormle)

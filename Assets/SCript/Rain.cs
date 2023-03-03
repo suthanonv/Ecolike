@@ -9,7 +9,6 @@ public class Rain : MonoBehaviour
     [SerializeField] float ActiveTime;
     [SerializeField] ElementType type;
     [SerializeField] Element Em;
-    [SerializeField] float ActiveRange;
     [SerializeField] float DecreaseAmount;
     [SerializeField] float DamageIncrease;
     
@@ -22,9 +21,18 @@ public class Rain : MonoBehaviour
     float CurrentCD;
     float CurrentPlus;
     bool inRange = false;
+    bool isOnBuff;
     private void Start()
     {
         Destroy(this.gameObject, ActiveTime);
+    }
+
+    private void OnDestroy()
+    {
+        if (isOnBuff)
+        {
+            stat.GetBaseDamage(type).baseDamage -= CurrentPlus;
+        }
     }
 
 
@@ -39,6 +47,7 @@ public class Rain : MonoBehaviour
             inRange = true;
             CurrentPlus = stat.GetBaseDamage(type).baseDamage *(DamageIncrease / 100);
             stat.GetBaseDamage(type).baseDamage += CurrentPlus;
+            isOnBuff = true;
         }
     }
 
@@ -59,6 +68,7 @@ public class Rain : MonoBehaviour
         {
             inRange = false;
             stat.GetBaseDamage(type).baseDamage -= CurrentPlus;
+            isOnBuff = false;
         }
     }
 

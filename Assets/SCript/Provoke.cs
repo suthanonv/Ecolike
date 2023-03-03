@@ -5,6 +5,7 @@ using UnityEngine;
 public class Provoke : MonoBehaviour
 {
     Transform Player;
+    
     void Start()
     {
         Player = GameObject.FindWithTag("Player").transform;

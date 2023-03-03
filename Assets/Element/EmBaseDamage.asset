@@ -15,13 +15,13 @@ MonoBehaviour:
   AllElementalBaseStat:
   - type: 0
     baseDamage: 50
-    CurrentBaseDamage: 0
+    CurrentBaseDamage: 50
   - type: 1
     baseDamage: 50
-    CurrentBaseDamage: 0
+    CurrentBaseDamage: 50
   - type: 2
     baseDamage: 50
-    CurrentBaseDamage: 0
+    CurrentBaseDamage: 50
   - type: 3
     baseDamage: 50
-    CurrentBaseDamage: 0
+    CurrentBaseDamage: 50

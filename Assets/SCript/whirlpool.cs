@@ -40,6 +40,7 @@ public class whirlpool : Reaction
             if (Vector2.Distance(this.transform.position, i.transform.position) <= ActiveRange)
             {
                 i.OffSuck();
+                i.GetComponent<Knockback>().PlayFeedBack(this.gameObject);
             }
         }
     }

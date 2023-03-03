@@ -23,6 +23,10 @@ public class SmokeStatusEffect : StatusEffect
 
     [Header("Slow")]
     [SerializeField] UnityEvent Onslowed, OffSlowed;
+
+    [Header("Burn")]
+    [SerializeField] UnityEvent OnBurned, OffBurned;
+
     public override void OnFreeze()
     {
         isEffectFreeze = true;
@@ -75,6 +79,7 @@ public class SmokeStatusEffect : StatusEffect
     public override void OnBurn()
     {
         isEffectBurn = true;
+        OnBurned.Invoke();
     }
     public override bool isBurn()
     {
@@ -83,6 +88,7 @@ public class SmokeStatusEffect : StatusEffect
     public override void OffBurn()
     {
         isEffectBurn = false;
+        OffBurned.Invoke();
     }
 
 

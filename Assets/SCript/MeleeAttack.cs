@@ -99,11 +99,11 @@ public class MeleeAttack : MonoBehaviour
 
     void SummonUtimate()
     {
-        if(WeaponElement.UtimateProjectile.isProjectile)
+        if(WeaponElement.MeleeUtimateProjectile.isProjectile)
         {
             GameObject Uti = Instantiate(WeaponElement.MeleeUlti, Point.position, RotationPoint.rotation);
             Rigidbody2D rb = Uti.GetComponent<Rigidbody2D>();
-            rb.AddForce(Point.up * WeaponElement.UtimateProjectile.Force, ForceMode2D.Impulse);
+            rb.AddForce(Point.up * WeaponElement.MeleeUtimateProjectile.Force, ForceMode2D.Impulse);
         }
         else
         {

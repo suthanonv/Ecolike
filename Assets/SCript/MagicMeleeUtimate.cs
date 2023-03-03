@@ -5,7 +5,18 @@ using UnityEngine;
 public class MagicMeleeUtimate : MonoBehaviour
 {
     [SerializeField] float Time;
-
+    public static MagicMeleeUtimate insatnce;
+    private void Awake()
+    {
+        if(insatnce == null)
+        {
+            insatnce = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
     private void Start()
     {
         EffectManager.instance.OnBodyBuff(stateOnOff.on);
@@ -16,5 +27,6 @@ public class MagicMeleeUtimate : MonoBehaviour
     void OffUtimate()
     {
         EffectManager.instance.OnBodyBuff(stateOnOff.off);
+        Destroy(this.gameObject);
     }
 }

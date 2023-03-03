@@ -36,6 +36,7 @@ public class Element : ScriptableObject
 
     [Header("Ultimate Stat")]
     public projectileRequimrent UtimateProjectile;
+    public projectileRequimrent MeleeUtimateProjectile;
     public GameObject MagicUtimatePrefab;
     public float UtimateUpTime;
     public float MaxChargeTime;
