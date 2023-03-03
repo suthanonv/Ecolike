@@ -26,7 +26,6 @@ public class shooting : MonoBehaviour
   public  Element CurrentEM;
     float  CurrentGage;
    public float MaxGate;
-    [SerializeField] float CastingSpeed = 1;
     [SerializeField] GameObject Slider;
     
     private void Awake()

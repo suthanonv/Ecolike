@@ -30,7 +30,6 @@ public class GolemAttack : MonoBehaviour
                 if (CurrentCD <= 0)
                 {
                     anim.SetBool("Attack", true);
-                    OnAttack.Invoke();
                     CurrentCD = AttackCooldown;
                 }
             }

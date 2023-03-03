@@ -19,7 +19,11 @@ public class EnemyDamage : EnemyAttacking
             this.gameObject.GetComponent<Knockback>().PlayFeedBack(collision.gameObject);
             collision.gameObject.GetComponent<DamageAble>().TakeDamage(Damage, type);
         }
-      
+      if(collision.gameObject.GetComponent<DamageAble>() != null && collision.gameObject.tag != "Player")
+        {
+            collision.gameObject.GetComponent<DamageAble>().TakeDamage(Damage, type);
+            this.gameObject.GetComponent<Knockback>().NormleFeedBack(collision.gameObject);
+        }
     }
 
     public override void ONStatChange(bool ChangeToNormle)
