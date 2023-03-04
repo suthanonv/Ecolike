@@ -131,6 +131,8 @@ MonoBehaviour:
   type: 1
   stat: {fileID: 11400000, guid: 25fe159113ed82f46a4a2b1bcc653bae, type: 2}
   DmageMultiple: 100
+  Parent: {fileID: 0}
+  chance: 0000000002000000
 --- !u!95 &7140118377643648488
 Animator:
   serializedVersion: 4

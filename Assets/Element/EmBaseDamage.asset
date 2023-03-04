@@ -14,14 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllElementalBaseStat:
   - type: 0
-    baseDamage: 50
-    CurrentBaseDamage: 50
+    baseDamage: 10
   - type: 1
-    baseDamage: 50
-    CurrentBaseDamage: 50
+    baseDamage: 10
   - type: 2
-    baseDamage: 50
-    CurrentBaseDamage: 50
+    baseDamage: 10
   - type: 3
-    baseDamage: 50
-    CurrentBaseDamage: 50
+    baseDamage: 10
+  AllEffectchange:
+  - type: 0
+    chance: 0
+    EffectPrefab: {fileID: 0}
+  - type: 1
+    chance: 0
+    EffectPrefab: {fileID: 0}
+  - type: 2
+    chance: 0
+    EffectPrefab: {fileID: 0}
+  - type: 3
+    chance: 0
+    EffectPrefab: {fileID: 0}
+  - type: 4
+    chance: 0
+    EffectPrefab: {fileID: 0}

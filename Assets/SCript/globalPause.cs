@@ -5,11 +5,12 @@ using UnityEngine.Events;
 public class globalPause : MonoBehaviour
 {
     public static globalPause instance;
-    public UnityEvent<bool> Paused;
+    public UnityEvent<bool> Paused,globalPaused;
     private void Awake()
     {
         instance = this;
     }
+
 
 
 }

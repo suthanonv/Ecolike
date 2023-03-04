@@ -613,6 +613,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ElementLessSlash
       objectReference: {fileID: 0}
+    - target: {fileID: 519219782060700063, guid: 13336dd0c9ac01c4b88d097d31d84d26, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 519219782060700069, guid: 13336dd0c9ac01c4b88d097d31d84d26, type: 3}
       propertyPath: Parent
       value: 

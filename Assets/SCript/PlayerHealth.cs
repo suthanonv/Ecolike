@@ -11,7 +11,7 @@ public class PlayerHealth : DamageAble
         instance = this;
     }
 
-    [SerializeField] float MaxHealth;
+
     float CurrentHealth;
     bool GotHit;
     [SerializeField] float EffectTime;
@@ -19,10 +19,12 @@ public class PlayerHealth : DamageAble
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] Color HitColor;
     public UnityEvent OnHit,Died;
+    [SerializeField] PlayerStat state;
+    [SerializeField] StateType types;
     private void Start()
     {
-        CurrentHealth = MaxHealth;
-        UiManager.instance.SetHealthValue(MaxHealth,CurrentHealth);
+        CurrentHealth = state.GetState(types).Stat;
+        UiManager.instance.SetHealthValue(state.GetState(types).Stat, CurrentHealth);
     }
 
     public override void TakeDamage(float Damage,ElementType type)
@@ -30,7 +32,7 @@ public class PlayerHealth : DamageAble
         OnHit.Invoke();
         CurrentHealth -= Damage;
         GotHit = true;
-        UiManager.instance.SetHealthValue(MaxHealth, CurrentHealth);
+        UiManager.instance.SetHealthValue(state.GetState(types).Stat, CurrentHealth);
         if(CurrentHealth <= 0)
         {
             Died.Invoke();
@@ -40,11 +42,11 @@ public class PlayerHealth : DamageAble
     public void Health(float HealthAMount)
     {
         CurrentHealth += HealthAMount;
-        if(CurrentHealth > MaxHealth)
+        if(CurrentHealth > state.GetState(types).Stat)
         {
-            CurrentHealth = MaxHealth;
+            CurrentHealth = state.GetState(types).Stat;
         }
-        UiManager.instance.SetHealthValue(MaxHealth, CurrentHealth);
+        UiManager.instance.SetHealthValue(state.GetState(types).Stat, CurrentHealth);
     }
 
     private void Update()

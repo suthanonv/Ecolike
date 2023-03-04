@@ -6,14 +6,26 @@ public class MeleeSlash : MonoBehaviour
 {
     RotationToMouse rotate;
     [SerializeField] float DestoryTime;
+  
     float Damage;
     [SerializeField] Element SlashEm;
     [SerializeField] ElementType type;
     [SerializeField] ElementalBaseDamageStat stat;
     [SerializeField] float DmageMultiple = 100;
     [SerializeField] GameObject Parent;
-   
 
+    [Header("Alivible effect chance")]
+    [SerializeField] List<EffectTypechance> chance = new List<EffectTypechance>();
+    List<EffectChance> effect = new List<EffectChance>();
+
+    private void Start()
+    {
+      
+        foreach (EffectTypechance type in chance)
+        {
+            effect.Add(stat.GetEffect(type));
+        }
+    }
     private void OnEnable()
     {
         Damage = stat.GetBaseDamage(type).baseDamage * (DmageMultiple / 100);
@@ -34,7 +46,10 @@ public class MeleeSlash : MonoBehaviour
         {
             other.GetComponent<Knockback>().PlayFeedBack(this.gameObject);
         }
-
+        if(other.gameObject.GetComponent<StatusEffect>() != null)
+        {
+            RandEffect(other.gameObject);
+        }
         if (other.gameObject.GetComponent<EnemyHealth>() != null)
         {
             other.GetComponent<EnemyHealth>().EmAttackType(SlashEm);
@@ -43,6 +58,25 @@ public class MeleeSlash : MonoBehaviour
         } 
 
        
+    }
+
+    void RandEffect(GameObject target)
+    {
+        float rand = Random.Range(0, 101);
+        List<Reaction> possible = new List<Reaction>();
+        foreach(EffectChance i in effect)
+        {
+            if(rand <= i.chance)
+            {
+                possible.Add(i.EffectPrefab);
+            }
+        }
+        if(possible.Count > 0)
+        {
+        Reaction ef =    Instantiate(possible[Random.Range(0,possible.Count)], transform.position, Quaternion.identity);
+            ef.SetReaction(target);
+        }
+            return;    
     }
     
     private void OnDisable()

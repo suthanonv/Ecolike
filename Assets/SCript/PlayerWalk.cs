@@ -6,15 +6,20 @@ public class PlayerWalk : MonoBehaviour
 {
     public static PlayerWalk instance;
 
-    [SerializeField] UnityEvent OnWarp, OnFisishWarp;
+
     public Rigidbody2D rb;
     public RigidbodyConstraints2D rbc;
     public Animator animator;
 
     float CurrentSpeed;
-    public float moveSpeed = 5f;
+   
+    [SerializeField] PlayerStat stat;
+    
+    [SerializeField] StateType typeofstat;
+
     Vector2 movement;
     private Camera MainCam;
+    
     private void Awake()
     {
         instance = this;
@@ -32,7 +37,7 @@ public class PlayerWalk : MonoBehaviour
         else
         {
             Stop = false;
-            CurrentSpeed = moveSpeed;
+            CurrentSpeed = stat.GetState(typeofstat).Stat;
         }
     }
 
@@ -41,18 +46,18 @@ public class PlayerWalk : MonoBehaviour
     {
         if(slow)
         {
-            CurrentSpeed = moveSpeed * .25f;
+            CurrentSpeed = stat.GetState(typeofstat).Stat * .25f;
         }
         else
         {
-            CurrentSpeed = moveSpeed;
+            CurrentSpeed = stat.GetState(typeofstat).Stat;
         }
     }
 
     void Start()
     {
         MainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        CurrentSpeed = moveSpeed;
+        CurrentSpeed = stat.GetState(typeofstat).Stat;
     }
 
     // Update is called once per frame
@@ -88,19 +93,7 @@ public class PlayerWalk : MonoBehaviour
     }
 
     public void OnWarping(bool Warp)
-    {
-        if(Warp)
-        {
-            StopWalk(true);
-            OnWarp.Invoke();
-        }
-       else
-        {
-            StopWalk(false);
-            OnFisishWarp.Invoke();
-        }
-        
-
+    { 
     }
 
     private void OnDisable()

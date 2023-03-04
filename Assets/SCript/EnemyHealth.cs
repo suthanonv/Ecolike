@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using UnityEngine.Events;
 public class EnemyHealth : EnemyAttacking
 {
     
@@ -21,6 +22,9 @@ public class EnemyHealth : EnemyAttacking
      
     [Header("Stat")]
     [SerializeField] StatHolder stat;
+
+    [Header("OnDied")]
+    [SerializeField] UnityEvent OnDied;
     
    public  delegate void Debuff();
     public Debuff DebuffHandle;
@@ -86,6 +90,7 @@ public class EnemyHealth : EnemyAttacking
 
         if (CurrentHealth <= 0)
         {
+            OnDied.Invoke();
             Destroy(gameObject);
         }
     }

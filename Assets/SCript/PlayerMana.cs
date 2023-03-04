@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerMana : MonoBehaviour
 {
     public static PlayerMana instance;
+    [SerializeField] PlayerStat stat;
+    [SerializeField] StateType type;
+     
     [SerializeField] float ManaRegenTIme;
     [SerializeField] int ManaRegenMuch;
     private void Awake()
@@ -12,19 +15,19 @@ public class PlayerMana : MonoBehaviour
         instance = this;
     }
 
-    public int Mana;
-    public int CurrentMana;
+    
+    public float CurrentMana;
 
     public void DecreasedMana(int ManaAdd)
     {
         CurrentMana -= ManaAdd;
-        UiManager.instance.SetManaValue(Mana, CurrentMana);
+        UiManager.instance.SetManaValue(stat.GetState(type).Stat, CurrentMana);
     }
 
     private void Start()
     {
-        CurrentMana = Mana;
-        UiManager.instance.SetManaValue(Mana, CurrentMana);
+        CurrentMana = stat.GetState(type).Stat;
+        UiManager.instance.SetManaValue(stat.GetState(type).Stat, CurrentMana);
         StartCoroutine(RegenMana());
     }
 
@@ -33,14 +36,14 @@ public class PlayerMana : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(ManaRegenTIme);
-            if(CurrentMana < Mana)
+            if(CurrentMana < stat.GetState(type).Stat)
             {
                 CurrentMana += ManaRegenMuch;
-                UiManager.instance.SetManaValue(Mana, CurrentMana);
-                if(CurrentMana >= Mana)
+                UiManager.instance.SetManaValue(stat.GetState(type).Stat, CurrentMana);
+                if(CurrentMana >= stat.GetState(type).Stat)
                 {
-                    CurrentMana = Mana;
-                    UiManager.instance.SetManaValue(Mana, CurrentMana); 
+                    CurrentMana = stat.GetState(type).Stat;
+                    UiManager.instance.SetManaValue(stat.GetState(type).Stat, CurrentMana); 
                 }
             }
         }

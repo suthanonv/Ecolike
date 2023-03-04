@@ -38,8 +38,13 @@ MonoBehaviour:
     isProjectile: 0
     Force: 0
     projectileUptime: 0
+  MeleeUtimateProjectile:
+    isProjectile: 0
+    Force: 0
+    projectileUptime: 0
+  MagicUtimatePrefab: {fileID: 707628030900234893, guid: d016f3cdc32260545b45f45529d2fcd9, type: 3}
   UtimateUpTime: 0
-  MaxChargeTime: 5
+  MaxChargeTime: 3
   MeleeSkillManaCost: 0
   MeleeSkillImg: {fileID: 0}
   MeleeSkillPrefab: {fileID: 0}

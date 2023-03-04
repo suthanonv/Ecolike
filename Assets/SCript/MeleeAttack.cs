@@ -20,7 +20,7 @@ public class MeleeAttack : MonoBehaviour
     {
         instace = this;
     }
-    private void Start()
+    private void OnEnable()
     {
         PlayerHealth.instance.OnHit.AddListener(CancelGate);
         RotationPoint = GameObject.FindWithTag("Weapon").transform;
@@ -28,6 +28,8 @@ public class MeleeAttack : MonoBehaviour
     }
     float Limit;
     float CurrentCharge = 0;
+
+
     private void Update()
     {
         if (CurrentCD <= 0)
@@ -45,8 +47,6 @@ public class MeleeAttack : MonoBehaviour
             {
                 if (CurrentCharge < Limit)
                 {
-
-                    //                    Instantiate(WeaponElement.MeleePrefab, Point.transform.position, RotationPoint.transform.rotation);
                     SlashPoint.SetActive(true);
                     SlashPoint.GetComponent<MeleeSlash>().enabled = true;
                 }

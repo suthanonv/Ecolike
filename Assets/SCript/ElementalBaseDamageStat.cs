@@ -7,24 +7,29 @@ public enum ElementType
 { 
  less,fire,water,earth
 }
+public  enum EffectTypechance
+{ 
+    all,water,fire,earth,less
+}
 
 [CreateAssetMenu]
 public class ElementalBaseDamageStat : ScriptableObject
 {
     public List<ElementBaseStat> AllElementalBaseStat = new List<ElementBaseStat>();
-
+    public List<EffectChance> AllEffectchange = new List<EffectChance>();
    
 
    public ElementBaseStat GetBaseDamage(ElementType GetType)
     {
         ElementBaseStat stat =  AllElementalBaseStat.FirstOrDefault(i => i.type == GetType);
 
-        if(stat.CurrentBaseDamage == 0)
-        {
-            stat.CurrentBaseDamage = stat.baseDamage;
-        }
-
         return stat;
+    }
+
+
+    public EffectChance GetEffect(EffectTypechance type)
+    {
+        return AllEffectchange.FirstOrDefault(i => i.type == type);
     }
 
 }
@@ -35,7 +40,13 @@ public class ElementBaseStat
 {
     public ElementType type;
     public float baseDamage;
-    public float CurrentBaseDamage;
+}
+[System.Serializable]
+public class EffectChance
+{
+    public EffectTypechance type;
+    public float chance;
+    public Reaction EffectPrefab;
 }
 
 

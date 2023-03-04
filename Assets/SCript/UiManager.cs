@@ -20,7 +20,7 @@ public class UiManager : MonoBehaviour
     [Header("Mana Bar")]
     [SerializeField] Slider ManaSlider;
     [SerializeField] Slider AnimManaSlider;
-    int LastMana;
+    float LastMana;
 
     [Header("Swap Key")]
     [SerializeField] Image SwapImage;
@@ -63,6 +63,18 @@ public class UiManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI KeyElement3Text;
     [SerializeField] TextMeshProUGUI KeyForgeText;
 
+    [Header("Exp Slide")]
+    [SerializeField] Slider ExpBar;
+
+    [Header("Level Up Bar")]
+    [SerializeField] GameObject Panal;
+
+    public void SetNewExpBar(float Max,float Current)
+    {
+        ExpBar.maxValue = Max;
+        ExpBar.value = Current;
+    }
+
     private void Start()
     {
         SetKeyText();
@@ -76,7 +88,7 @@ public class UiManager : MonoBehaviour
         RunHealtAnimation(CurrentHealth, MaxHealh);
     }
 
-    public void SetManaValue(int MaxMana, int CurrentMana)
+    public void SetManaValue(float MaxMana, float CurrentMana)
     {
         ManaSlider.maxValue = MaxMana;
         ManaSlider.value = CurrentMana;
@@ -104,7 +116,7 @@ public class UiManager : MonoBehaviour
         }
     }
 
-    void RunManaAnimation(int MaxMana, int CurrentMana)
+    void RunManaAnimation(float MaxMana, float CurrentMana)
     {
         AnimManaSlider.maxValue = MaxMana;
 
@@ -131,7 +143,7 @@ public class UiManager : MonoBehaviour
     float LerpHealth;
 
     bool ManaLerp;
-    int LerpMana;
+    float LerpMana;
     private void Update()
     {
         if(HealthLerp)
@@ -240,6 +252,7 @@ public class UiManager : MonoBehaviour
          //   ElementSkillImage.sprite = currnetElement.MagicSkilImg;
         }
     }
+
     
 
     public void SetKeyText()

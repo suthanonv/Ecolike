@@ -18,7 +18,7 @@ public class Explotion : Reaction
         {
             if (Vector2.Distance(i.transform.position, this.transform.position) <= ExplotionRange)
             {
-                float Damage = BaseDamageStat.GetBaseDamage(type).CurrentBaseDamage * (DamageMultiple / 100);
+                float Damage = BaseDamageStat.GetBaseDamage(type).baseDamage * (DamageMultiple / 100);
                 i.TakeDamage(Damage, type);
                 i.GetComponent<Knockback>().PlayFeedBack(this.gameObject);
             }

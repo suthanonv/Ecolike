@@ -4,10 +4,20 @@ using UnityEngine;
 using System.Linq;
 public class StatHolder : MonoBehaviour
 {
+    [Header("Stat")]
     public BaseStat CharacterBaseStat;
     public DebuffStat BaseDebuffStat;
     public BaseDamaegStat BaseCharacterDamage;
     public List<Resistance> BaseResistance;
+
+    [Header("DropList")]
+    [SerializeField] GameObject Exp;
+
+    public void DropExp()
+    {
+        Instantiate(Exp, this.transform.position, Quaternion.identity);
+    }
+
 
     public float GetResistance(ElementType GetType)
     {
