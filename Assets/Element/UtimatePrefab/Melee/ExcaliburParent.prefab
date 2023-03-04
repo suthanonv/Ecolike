@@ -264,7 +264,7 @@ MonoBehaviour:
   col: {fileID: 8423171059441365773}
   element: {fileID: 11400000, guid: 26faa097b7de3254599ad8f34962cbc0, type: 2}
   type: 1
-  DamageMultiple: 525
+  DamageMultiple: 1e+14
   stat: {fileID: 11400000, guid: 25fe159113ed82f46a4a2b1bcc653bae, type: 2}
   BurnEffect: {fileID: 2299108321274099707, guid: 5670a5d55d01e8d449f38e23eed82730, type: 3}
   chanceToBurn: 33

@@ -76,7 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExplotionRange: 10.5
   BaseDamageStat: {fileID: 11400000, guid: 25fe159113ed82f46a4a2b1bcc653bae, type: 2}
-  DamageMultiple: 500
+  DamageMultiple: 1e+19
   type: 0
   incomeEm: {fileID: 11400000, guid: c99502f60f6273847872734d5ccb9146, type: 2}
   Delay: 0
